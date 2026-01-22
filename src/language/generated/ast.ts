@@ -156,6 +156,7 @@ export type SysMLKeywordNames =
     | "rep"
     | "require"
     | "requirement"
+    | "results"
     | "return"
     | "send"
     | "specialization"
@@ -215,7 +216,7 @@ export function isCalculationBodyElement(item: unknown): item is CalculationBody
     return reflection.isInstance(item, CalculationBodyElement);
 }
 
-export type CaseBodyElement = ActionUsage | ActorMember | NamespaceElement | ObjectiveMember | SubjectUsage;
+export type CaseBodyElement = ActionUsage | ActorMember | NamespaceElement | ObjectiveMember | ResultsBlock | SubjectUsage;
 
 export const CaseBodyElement = 'CaseBodyElement';
 
@@ -476,7 +477,7 @@ export function isAdditiveExpression(item: unknown): item is AdditiveExpression 
 }
 
 export interface AliasMember extends langium.AstNode {
-    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
+    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | ResultsBlock | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
     readonly $type: 'AliasMember';
     aliasName: Name;
     target: QualifiedName;
@@ -1354,7 +1355,7 @@ export function isFeatureChainRef(item: unknown): item is FeatureChainRef {
 }
 
 export interface FeatureMember extends langium.AstNode {
-    readonly $container: FeatureBodyRule | TypeBodyRule;
+    readonly $container: FeatureBodyRule | ResultsBlock | TypeBodyRule;
     readonly $type: 'FeatureMember';
     feature: Feature;
     visibility?: VisibilityIndicator;
@@ -1405,7 +1406,7 @@ export function isFeatureTypeRef(item: unknown): item is FeatureTypeRef {
 }
 
 export interface FeatureTypingDecl extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'FeatureTypingDecl';
     featureType: QualifiedName;
     name?: Name;
@@ -1557,7 +1558,7 @@ export function isImpliesExpression(item: unknown): item is ImpliesExpression {
 }
 
 export interface Import extends langium.AstNode {
-    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
+    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | ResultsBlock | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
     readonly $type: 'Import';
     importRef: ImportReference;
     isAll: boolean;
@@ -2038,7 +2039,7 @@ export function isOrExpression(item: unknown): item is OrExpression {
 }
 
 export interface OwningMembership extends langium.AstNode {
-    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
+    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | ResultsBlock | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
     readonly $type: 'OwningMembership';
     element: Element;
     visibility?: VisibilityIndicator;
@@ -2242,7 +2243,7 @@ export function isRangeExpression(item: unknown): item is RangeExpression {
 }
 
 export interface Redefinition extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Redefinition';
     name?: Name;
     redefinedFeature: QualifiedName;
@@ -2390,6 +2391,18 @@ export function isResultExpressionRule(item: unknown): item is ResultExpressionR
     return reflection.isInstance(item, ResultExpressionRule);
 }
 
+export interface ResultsBlock extends langium.AstNode {
+    readonly $container: CaseBodyRule;
+    readonly $type: 'ResultsBlock';
+    elements: Array<FeatureBodyElement>;
+}
+
+export const ResultsBlock = 'ResultsBlock';
+
+export function isResultsBlock(item: unknown): item is ResultsBlock {
+    return reflection.isInstance(item, ResultsBlock);
+}
+
 export interface ReturnUsage extends langium.AstNode {
     readonly $container: CalculationBodyRule;
     readonly $type: 'ReturnUsage';
@@ -2429,7 +2442,7 @@ export function isSendAction(item: unknown): item is SendAction {
 }
 
 export interface Specialization extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Specialization';
     name?: Name;
     subtype: QualifiedName;
@@ -2527,7 +2540,7 @@ export function isStruct(item: unknown): item is Struct {
 }
 
 export interface Subclassification extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Subclassification';
     name?: Name;
     subclassifier: QualifiedName;
@@ -2556,7 +2569,7 @@ export function isSubjectUsage(item: unknown): item is SubjectUsage {
 }
 
 export interface Subsetting extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Subsetting';
     name?: Name;
     subsettedFeature: QualifiedName;
@@ -3310,6 +3323,7 @@ export type SysMLAstType = {
     RequirementDefinition: RequirementDefinition
     RequirementUsage: RequirementUsage
     ResultExpressionRule: ResultExpressionRule
+    ResultsBlock: ResultsBlock
     ReturnTypePart: ReturnTypePart
     ReturnUsage: ReturnUsage
     RootNamespace: RootNamespace
@@ -3355,7 +3369,7 @@ export type SysMLAstType = {
 export class SysMLAstReflection extends langium.AbstractAstReflection {
 
     getAllTypes(): string[] {
-        return [AcceptAction, ActionBodyElement, ActionBodyRule, ActionDefinition, ActionUsage, ActorMember, AdditiveExpression, AliasMember, Allocate, AllocationDefinition, AllocationUsage, AllocationUsageDecl, AnalysisCaseDefinition, AnalysisCaseUsage, AndExpression, AssertConstraint, AssignmentAction, Association, AssumeConstraint, AttributeDefinition, AttributeUsage, Behavior, BindingConnector, BodyExpression, CalculationBodyElement, CalculationBodyRule, CalculationDefinition, CalculationUsage, CaseBodyElement, CaseBodyRule, CaseDefinition, CaseUsage, Class, ClassificationExpression, Classifier, Comment, ConcernDefinition, ConcernUsage, ConditionalExpression, ConnectionDefinition, ConnectionUsage, ConnectionUsageDecl, Connector, ConnectorDecl, ConnectorEnd, ConstraintBodyElement, ConstraintBodyRule, ConstraintDefinition, ConstraintUsage, DataType, Dependency, DoAction, Documentation, EffectActionPart, Element, EntryAction, EnumerationBodyRule, EnumerationDefinition, EnumerationUsage, EqualityExpression, ExitAction, ExponentiationExpression, ExposeElement, ExtentExpression, Feature, FeatureBodyElement, FeatureBodyRule, FeatureChainExpression, FeatureChainRef, FeatureMember, FeatureReferenceExpression, FeatureReferenceMember, FeatureTypeRef, FeatureTypingDecl, FilterElement, FlowConnectionDefinition, FlowConnectionUsage, FlowConnectionUsageDecl, ForLoopAction, FramedConcern, FunctionDecl, GuardExpressionPart, IfThenAction, ImpliesExpression, Import, ImportReference, IncludeUseCaseUsage, InlineAction, InlinePartDecl, Interaction, InterfaceDefinition, InterfaceUsage, InterfaceUsageDecl, InvocationExpression, ItemDefinition, ItemFlow, ItemFlowDecl, ItemUsage, LibraryPackage, LiteralBoolean, LiteralDefault, LiteralExpression, LiteralInteger, LiteralNull, LiteralReal, LiteralString, LiteralValue, MetadataBodyElement, MetadataBodyOpt, MetadataDefinition, MetadataUsage, MetadataValue, MultiplicativeExpression, MultiplicityBounds, NamespaceElement, NullCoalescingExpression, ObjectiveMember, OccurrenceDefinition, OccurrenceUsage, OrExpression, OwnedExpression, OwningMembership, Package, PackageBody, ParameterListPart, ParameterMember, PartDefinition, PartUsage, PerformAction, PortDefinition, PortUsage, Predicate, QualifiedName, RangeExpression, Redefinition, RelationalExpression, RelationshipElement, RenderingDefinition, RenderingUsage, RequireConstraint, RequirementBodyElement, RequirementBodyRule, RequirementDefinition, RequirementUsage, ResultExpressionRule, ReturnTypePart, ReturnUsage, RootNamespace, SendAction, Specialization, StakeholderMember, StateBodyElement, StateBodyRule, StateDefinition, StateUsage, Struct, Subclassification, SubjectUsage, Subsetting, Succession, SuccessionDecl, SuccessionUsage, TextualRepresentation, TransitionBodyRule, TransitionDecl, TransitionUsage, TriggerActionPart, TypeBodyElement, TypeBodyRule, TypeDecl, UnaryExpression, UseCaseBodyElement, UseCaseBodyRule, UseCaseDefinition, UseCaseUsage, VerificationCaseDefinition, VerificationCaseUsage, ViewBodyElement, ViewBodyRule, ViewDefinition, ViewUsage, ViewpointDefinition, ViewpointUsage, WhileLoopAction, XorExpression];
+        return [AcceptAction, ActionBodyElement, ActionBodyRule, ActionDefinition, ActionUsage, ActorMember, AdditiveExpression, AliasMember, Allocate, AllocationDefinition, AllocationUsage, AllocationUsageDecl, AnalysisCaseDefinition, AnalysisCaseUsage, AndExpression, AssertConstraint, AssignmentAction, Association, AssumeConstraint, AttributeDefinition, AttributeUsage, Behavior, BindingConnector, BodyExpression, CalculationBodyElement, CalculationBodyRule, CalculationDefinition, CalculationUsage, CaseBodyElement, CaseBodyRule, CaseDefinition, CaseUsage, Class, ClassificationExpression, Classifier, Comment, ConcernDefinition, ConcernUsage, ConditionalExpression, ConnectionDefinition, ConnectionUsage, ConnectionUsageDecl, Connector, ConnectorDecl, ConnectorEnd, ConstraintBodyElement, ConstraintBodyRule, ConstraintDefinition, ConstraintUsage, DataType, Dependency, DoAction, Documentation, EffectActionPart, Element, EntryAction, EnumerationBodyRule, EnumerationDefinition, EnumerationUsage, EqualityExpression, ExitAction, ExponentiationExpression, ExposeElement, ExtentExpression, Feature, FeatureBodyElement, FeatureBodyRule, FeatureChainExpression, FeatureChainRef, FeatureMember, FeatureReferenceExpression, FeatureReferenceMember, FeatureTypeRef, FeatureTypingDecl, FilterElement, FlowConnectionDefinition, FlowConnectionUsage, FlowConnectionUsageDecl, ForLoopAction, FramedConcern, FunctionDecl, GuardExpressionPart, IfThenAction, ImpliesExpression, Import, ImportReference, IncludeUseCaseUsage, InlineAction, InlinePartDecl, Interaction, InterfaceDefinition, InterfaceUsage, InterfaceUsageDecl, InvocationExpression, ItemDefinition, ItemFlow, ItemFlowDecl, ItemUsage, LibraryPackage, LiteralBoolean, LiteralDefault, LiteralExpression, LiteralInteger, LiteralNull, LiteralReal, LiteralString, LiteralValue, MetadataBodyElement, MetadataBodyOpt, MetadataDefinition, MetadataUsage, MetadataValue, MultiplicativeExpression, MultiplicityBounds, NamespaceElement, NullCoalescingExpression, ObjectiveMember, OccurrenceDefinition, OccurrenceUsage, OrExpression, OwnedExpression, OwningMembership, Package, PackageBody, ParameterListPart, ParameterMember, PartDefinition, PartUsage, PerformAction, PortDefinition, PortUsage, Predicate, QualifiedName, RangeExpression, Redefinition, RelationalExpression, RelationshipElement, RenderingDefinition, RenderingUsage, RequireConstraint, RequirementBodyElement, RequirementBodyRule, RequirementDefinition, RequirementUsage, ResultExpressionRule, ResultsBlock, ReturnTypePart, ReturnUsage, RootNamespace, SendAction, Specialization, StakeholderMember, StateBodyElement, StateBodyRule, StateDefinition, StateUsage, Struct, Subclassification, SubjectUsage, Subsetting, Succession, SuccessionDecl, SuccessionUsage, TextualRepresentation, TransitionBodyRule, TransitionDecl, TransitionUsage, TriggerActionPart, TypeBodyElement, TypeBodyRule, TypeDecl, UnaryExpression, UseCaseBodyElement, UseCaseBodyRule, UseCaseDefinition, UseCaseUsage, VerificationCaseDefinition, VerificationCaseUsage, ViewBodyElement, ViewBodyRule, ViewDefinition, ViewUsage, ViewpointDefinition, ViewpointUsage, WhileLoopAction, XorExpression];
     }
 
     protected override computeIsSubtype(subtype: string, supertype: string): boolean {
@@ -3568,6 +3582,9 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
             }
             case RequirementBodyRule: {
                 return this.isSubtype(ConcernDefinition, supertype) || this.isSubtype(ConcernUsage, supertype) || this.isSubtype(RequirementDefinition, supertype) || this.isSubtype(RequirementUsage, supertype) || this.isSubtype(ViewpointDefinition, supertype) || this.isSubtype(ViewpointUsage, supertype);
+            }
+            case ResultsBlock: {
+                return this.isSubtype(CaseBodyElement, supertype);
             }
             case ReturnUsage: {
                 return this.isSubtype(CalculationBodyElement, supertype);
@@ -5145,6 +5162,14 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
                     name: ResultExpressionRule,
                     properties: [
                         { name: 'expression' }
+                    ]
+                };
+            }
+            case ResultsBlock: {
+                return {
+                    name: ResultsBlock,
+                    properties: [
+                        { name: 'elements', defaultValue: [] }
                     ]
                 };
             }

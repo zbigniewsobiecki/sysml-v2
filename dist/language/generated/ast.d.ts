@@ -15,7 +15,7 @@ export declare const SysMLTerminals: {
     WS: RegExp;
 };
 export type SysMLTerminalNames = keyof typeof SysMLTerminals;
-export type SysMLKeywordNames = "!" | "!=" | "!==" | "#" | "%" | "&" | "(" | ")" | "*" | "**" | "+" | "," | "-" | "." | ".." | "/" | ":" | "::" | "::=" | ":=" | ":>" | ":>>" | ";" | "<" | "<=" | "=" | "==" | "===" | "=>" | ">" | ">=" | "?" | "??" | "@" | "[" | "]" | "^" | "about" | "abstract" | "accept" | "action" | "actor" | "alias" | "all" | "allocate" | "allocation" | "analysis" | "and" | "as" | "assert" | "assign" | "assoc" | "assume" | "attribute" | "behavior" | "binding" | "by" | "calc" | "case" | "class" | "classifier" | "comment" | "composite" | "concern" | "conjugate" | "connect" | "connection" | "connector" | "constraint" | "datatype" | "def" | "default" | "dependency" | "derived" | "disjoint" | "do" | "doc" | "else" | "end" | "entry" | "enum" | "exit" | "expose" | "false" | "feature" | "featuring" | "filter" | "first" | "flow" | "for" | "frame" | "from" | "function" | "hastype" | "if" | "implies" | "import" | "in" | "include" | "inout" | "interaction" | "interface" | "istype" | "item" | "language" | "library" | "lifecycle" | "meta" | "metadata" | "not" | "null" | "objective" | "occurrence" | "of" | "or" | "out" | "package" | "parallel" | "part" | "perform" | "port" | "portion" | "predicate" | "private" | "protected" | "public" | "readonly" | "redefines" | "redefinition" | "ref" | "references" | "rendering" | "rep" | "require" | "requirement" | "return" | "send" | "specialization" | "specializes" | "stakeholder" | "standard" | "state" | "struct" | "subclassification" | "subclassifier" | "subject" | "subset" | "subsets" | "subtype" | "succession" | "then" | "to" | "transition" | "true" | "type" | "typed" | "until" | "use" | "variant" | "verification" | "via" | "view" | "viewpoint" | "while" | "xor" | "{" | "|" | "}" | "~";
+export type SysMLKeywordNames = "!" | "!=" | "!==" | "#" | "%" | "&" | "(" | ")" | "*" | "**" | "+" | "," | "-" | "." | ".." | "/" | ":" | "::" | "::=" | ":=" | ":>" | ":>>" | ";" | "<" | "<=" | "=" | "==" | "===" | "=>" | ">" | ">=" | "?" | "??" | "@" | "[" | "]" | "^" | "about" | "abstract" | "accept" | "action" | "actor" | "alias" | "all" | "allocate" | "allocation" | "analysis" | "and" | "as" | "assert" | "assign" | "assoc" | "assume" | "attribute" | "behavior" | "binding" | "by" | "calc" | "case" | "class" | "classifier" | "comment" | "composite" | "concern" | "conjugate" | "connect" | "connection" | "connector" | "constraint" | "datatype" | "def" | "default" | "dependency" | "derived" | "disjoint" | "do" | "doc" | "else" | "end" | "entry" | "enum" | "exit" | "expose" | "false" | "feature" | "featuring" | "filter" | "first" | "flow" | "for" | "frame" | "from" | "function" | "hastype" | "if" | "implies" | "import" | "in" | "include" | "inout" | "interaction" | "interface" | "istype" | "item" | "language" | "library" | "lifecycle" | "meta" | "metadata" | "not" | "null" | "objective" | "occurrence" | "of" | "or" | "out" | "package" | "parallel" | "part" | "perform" | "port" | "portion" | "predicate" | "private" | "protected" | "public" | "readonly" | "redefines" | "redefinition" | "ref" | "references" | "rendering" | "rep" | "require" | "requirement" | "results" | "return" | "send" | "specialization" | "specializes" | "stakeholder" | "standard" | "state" | "struct" | "subclassification" | "subclassifier" | "subject" | "subset" | "subsets" | "subtype" | "succession" | "then" | "to" | "transition" | "true" | "type" | "typed" | "until" | "use" | "variant" | "verification" | "via" | "view" | "viewpoint" | "while" | "xor" | "{" | "|" | "}" | "~";
 export type SysMLTokenNames = SysMLTerminalNames | SysMLKeywordNames;
 export type ActionBodyElement = AcceptAction | ActionUsage | AssertConstraint | AssignmentAction | ForLoopAction | IfThenAction | NamespaceElement | PerformAction | SendAction | SuccessionUsage | WhileLoopAction;
 export declare const ActionBodyElement = "ActionBodyElement";
@@ -25,7 +25,7 @@ export declare function isAdditiveOperator(item: unknown): item is AdditiveOpera
 export type CalculationBodyElement = ActionUsage | AttributeUsage | NamespaceElement | ReturnUsage;
 export declare const CalculationBodyElement = "CalculationBodyElement";
 export declare function isCalculationBodyElement(item: unknown): item is CalculationBodyElement;
-export type CaseBodyElement = ActionUsage | ActorMember | NamespaceElement | ObjectiveMember | SubjectUsage;
+export type CaseBodyElement = ActionUsage | ActorMember | NamespaceElement | ObjectiveMember | ResultsBlock | SubjectUsage;
 export declare const CaseBodyElement = "CaseBodyElement";
 export declare function isCaseBodyElement(item: unknown): item is CaseBodyElement;
 export type ClassificationOperator = '@' | 'as' | 'hastype' | 'istype' | 'meta';
@@ -151,7 +151,7 @@ export interface AdditiveExpression extends langium.AstNode {
 export declare const AdditiveExpression = "AdditiveExpression";
 export declare function isAdditiveExpression(item: unknown): item is AdditiveExpression;
 export interface AliasMember extends langium.AstNode {
-    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
+    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | ResultsBlock | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
     readonly $type: 'AliasMember';
     aliasName: Name;
     target: QualifiedName;
@@ -779,7 +779,7 @@ export interface FeatureChainRef extends langium.AstNode {
 export declare const FeatureChainRef = "FeatureChainRef";
 export declare function isFeatureChainRef(item: unknown): item is FeatureChainRef;
 export interface FeatureMember extends langium.AstNode {
-    readonly $container: FeatureBodyRule | TypeBodyRule;
+    readonly $container: FeatureBodyRule | ResultsBlock | TypeBodyRule;
     readonly $type: 'FeatureMember';
     feature: Feature;
     visibility?: VisibilityIndicator;
@@ -810,7 +810,7 @@ export interface FeatureTypeRef extends langium.AstNode {
 export declare const FeatureTypeRef = "FeatureTypeRef";
 export declare function isFeatureTypeRef(item: unknown): item is FeatureTypeRef;
 export interface FeatureTypingDecl extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'FeatureTypingDecl';
     featureType: QualifiedName;
     name?: Name;
@@ -912,7 +912,7 @@ export interface ImpliesExpression extends langium.AstNode {
 export declare const ImpliesExpression = "ImpliesExpression";
 export declare function isImpliesExpression(item: unknown): item is ImpliesExpression;
 export interface Import extends langium.AstNode {
-    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
+    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | ResultsBlock | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
     readonly $type: 'Import';
     importRef: ImportReference;
     isAll: boolean;
@@ -1238,7 +1238,7 @@ export interface OrExpression extends langium.AstNode {
 export declare const OrExpression = "OrExpression";
 export declare function isOrExpression(item: unknown): item is OrExpression;
 export interface OwningMembership extends langium.AstNode {
-    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
+    readonly $container: ActionBodyRule | CalculationBodyRule | CaseBodyRule | ConstraintBodyRule | EnumerationBodyRule | FeatureBodyRule | PackageBody | RequirementBodyRule | ResultsBlock | RootNamespace | StateBodyRule | TransitionBodyRule | TypeBodyRule | UseCaseBodyRule | ViewBodyRule;
     readonly $type: 'OwningMembership';
     element: Element;
     visibility?: VisibilityIndicator;
@@ -1387,7 +1387,7 @@ export interface RangeExpression extends langium.AstNode {
 export declare const RangeExpression = "RangeExpression";
 export declare function isRangeExpression(item: unknown): item is RangeExpression;
 export interface Redefinition extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Redefinition';
     name?: Name;
     redefinedFeature: QualifiedName;
@@ -1495,6 +1495,13 @@ export interface ResultExpressionRule extends langium.AstNode {
 }
 export declare const ResultExpressionRule = "ResultExpressionRule";
 export declare function isResultExpressionRule(item: unknown): item is ResultExpressionRule;
+export interface ResultsBlock extends langium.AstNode {
+    readonly $container: CaseBodyRule;
+    readonly $type: 'ResultsBlock';
+    elements: Array<FeatureBodyElement>;
+}
+export declare const ResultsBlock = "ResultsBlock";
+export declare function isResultsBlock(item: unknown): item is ResultsBlock;
 export interface ReturnUsage extends langium.AstNode {
     readonly $container: CalculationBodyRule;
     readonly $type: 'ReturnUsage';
@@ -1519,7 +1526,7 @@ export interface SendAction extends langium.AstNode {
 export declare const SendAction = "SendAction";
 export declare function isSendAction(item: unknown): item is SendAction;
 export interface Specialization extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Specialization';
     name?: Name;
     subtype: QualifiedName;
@@ -1592,7 +1599,7 @@ export interface Struct extends langium.AstNode {
 export declare const Struct = "Struct";
 export declare function isStruct(item: unknown): item is Struct;
 export interface Subclassification extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Subclassification';
     name?: Name;
     subclassifier: QualifiedName;
@@ -1611,7 +1618,7 @@ export interface SubjectUsage extends langium.AstNode {
 export declare const SubjectUsage = "SubjectUsage";
 export declare function isSubjectUsage(item: unknown): item is SubjectUsage;
 export interface Subsetting extends langium.AstNode {
-    readonly $container: FeatureBodyRule | OwningMembership | TypeBodyRule;
+    readonly $container: FeatureBodyRule | OwningMembership | ResultsBlock | TypeBodyRule;
     readonly $type: 'Subsetting';
     name?: Name;
     subsettedFeature: QualifiedName;
@@ -2165,6 +2172,7 @@ export type SysMLAstType = {
     RequirementDefinition: RequirementDefinition;
     RequirementUsage: RequirementUsage;
     ResultExpressionRule: ResultExpressionRule;
+    ResultsBlock: ResultsBlock;
     ReturnTypePart: ReturnTypePart;
     ReturnUsage: ReturnUsage;
     RootNamespace: RootNamespace;
