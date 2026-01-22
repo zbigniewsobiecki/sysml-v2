@@ -202,7 +202,7 @@ FeatureBodyRule:
     {infer FeatureBodyRule} ';' | {infer FeatureBodyRule} '{' elements+=FeatureBodyElement* '}';
 
 FeatureBodyElement:
-    NamespaceElement | RelationshipElement | FeatureMember;
+    RelationshipElement | FeatureMember | NamespaceElement;
 
 FeatureMember:
     visibility=VisibilityIndicator? feature=Feature;
