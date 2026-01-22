@@ -1,0 +1,62 @@
+{
+  "name": "sysml",
+  "scopeName": "source.sysml",
+  "fileTypes": [
+    ".sysml",
+    ".kerml"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "name": "keyword.control.sysml",
+      "match": "\\b(about|abstract|accept|action|actor|alias|all|allocate|allocation|analysis|and|as|assert|assign|assoc|assume|attribute|behavior|binding|by|calc|case|class|classifier|comment|composite|concern|conjugate|connect|connection|connector|constraint|datatype|def|default|dependency|derived|disjoint|do|doc|else|end|entry|enum|exit|expose|false|feature|featuring|filter|first|flow|for|frame|from|function|hastype|if|implies|import|in|include|inout|interaction|interface|istype|item|language|library|lifecycle|meta|metadata|not|null|objective|occurrence|of|or|out|package|parallel|part|perform|port|portion|predicate|private|protected|public|readonly|redefines|redefinition|ref|references|rendering|rep|require|requirement|return|send|specialization|specializes|stakeholder|standard|state|struct|subclassification|subclassifier|subject|subset|subsets|subtype|succession|then|to|transition|true|type|typed|until|use|variant|verification|via|view|viewpoint|while|xor)\\b"
+    },
+    {
+      "name": "string.quoted.double.sysml",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "include": "#string-character-escape"
+        }
+      ]
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.sysml",
+          "begin": "/\\*\\*",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.sysml"
+            }
+          },
+          "end": "\\*/",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.sysml"
+            }
+          }
+        },
+        {
+          "begin": "//",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.whitespace.comment.leading.sysml"
+            }
+          },
+          "end": "(?=$)",
+          "name": "comment.line.sysml"
+        }
+      ]
+    },
+    "string-character-escape": {
+      "name": "constant.character.escape.sysml",
+      "match": "\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|u\\{[0-9A-Fa-f]+\\}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.|$)"
+    }
+  }
+}
