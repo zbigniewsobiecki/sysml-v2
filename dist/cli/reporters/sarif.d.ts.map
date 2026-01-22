@@ -1,0 +1,1 @@
+{"version":3,"file":"sarif.d.ts","sourceRoot":"","sources":["../../../src/cli/reporters/sarif.ts"],"names":[],"mappings":"AAAA;;;;;;;GAOG;AAGH,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,6BAA6B,CAAC;AAGpE,UAAU,UAAU;IAChB,IAAI,EAAE,MAAM,CAAC;IACb,YAAY,EAAE,MAAM,CAAC;IACrB,MAAM,EAAE,gBAAgB,CAAC;CAC5B;AA2DD;;GAEG;AACH,wBAAgB,WAAW,CAAC,WAAW,EAAE,UAAU,EAAE,GAAG,MAAM,CA6D7D"}

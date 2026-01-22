@@ -1,0 +1,1 @@
+{"version":3,"file":"text.d.ts","sourceRoot":"","sources":["../../../src/cli/reporters/text.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAGH,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,6BAA6B,CAAC;AAGpE,UAAU,UAAU;IAChB,IAAI,EAAE,MAAM,CAAC;IACb,YAAY,EAAE,MAAM,CAAC;IACrB,MAAM,EAAE,gBAAgB,CAAC;CAC5B;AAED;;GAEG;AACH,wBAAgB,UAAU,CAAC,WAAW,EAAE,UAAU,EAAE,EAAE,SAAS,GAAE,OAAc,GAAG,MAAM,CAqCvF"}
