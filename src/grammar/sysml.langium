@@ -160,7 +160,7 @@ TypeBodyRule:
     {infer TypeBodyRule} ';' | {infer TypeBodyRule} '{' elements+=TypeBodyElement* '}';
 
 TypeBodyElement:
-    NamespaceElement | RelationshipElement;
+    NamespaceElement | RelationshipElement | FeatureMember;
 
 RelationshipElement:
     Specialization | Subclassification | FeatureTypingDecl | Subsetting | Redefinition;

@@ -74,7 +74,7 @@ export declare function isRequirementBodyElement(item: unknown): item is Require
 export type StateBodyElement = DoAction | EntryAction | ExitAction | NamespaceElement | StateUsage | TransitionUsage;
 export declare const StateBodyElement = "StateBodyElement";
 export declare function isStateBodyElement(item: unknown): item is StateBodyElement;
-export type TypeBodyElement = NamespaceElement | RelationshipElement;
+export type TypeBodyElement = FeatureMember | NamespaceElement | RelationshipElement;
 export declare const TypeBodyElement = "TypeBodyElement";
 export declare function isTypeBodyElement(item: unknown): item is TypeBodyElement;
 export type UnaryOperator = '!' | '+' | '-' | 'not' | '~';
@@ -779,7 +779,7 @@ export interface FeatureChainRef extends langium.AstNode {
 export declare const FeatureChainRef = "FeatureChainRef";
 export declare function isFeatureChainRef(item: unknown): item is FeatureChainRef;
 export interface FeatureMember extends langium.AstNode {
-    readonly $container: FeatureBodyRule;
+    readonly $container: FeatureBodyRule | TypeBodyRule;
     readonly $type: 'FeatureMember';
     feature: Feature;
     visibility?: VisibilityIndicator;

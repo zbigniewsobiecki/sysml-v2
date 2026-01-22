@@ -112,6 +112,33 @@ describe('Definitions', () => {
             const def = getFirstElement(ast);
             expect(isItemDefinition(def)).toBe(true);
         });
+
+        it('should parse item def with multiple attributes', async () => {
+            const ast = await parseAndExpectSuccess(`
+                item def User {
+                    attribute id : Identifier;
+                    attribute email : String;
+                    attribute firstName : String;
+                    attribute lastName : String;
+                }
+            `);
+            const def = getFirstElement(ast);
+            expect(isItemDefinition(def)).toBe(true);
+            expect(def.name).toBe('User');
+        });
+
+        it('should parse item def with mixed features', async () => {
+            const ast = await parseAndExpectSuccess(`
+                item def Vehicle {
+                    attribute vin : String;
+                    attribute make : String;
+                    part engine : Engine;
+                }
+            `);
+            const def = getFirstElement(ast);
+            expect(isItemDefinition(def)).toBe(true);
+            expect(def.name).toBe('Vehicle');
+        });
     });
 
     describe('Attribute Definition', () => {

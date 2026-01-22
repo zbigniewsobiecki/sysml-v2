@@ -351,7 +351,7 @@ export function isStateBodyElement(item: unknown): item is StateBodyElement {
     return reflection.isInstance(item, StateBodyElement);
 }
 
-export type TypeBodyElement = NamespaceElement | RelationshipElement;
+export type TypeBodyElement = FeatureMember | NamespaceElement | RelationshipElement;
 
 export const TypeBodyElement = 'TypeBodyElement';
 
@@ -1354,7 +1354,7 @@ export function isFeatureChainRef(item: unknown): item is FeatureChainRef {
 }
 
 export interface FeatureMember extends langium.AstNode {
-    readonly $container: FeatureBodyRule;
+    readonly $container: FeatureBodyRule | TypeBodyRule;
     readonly $type: 'FeatureMember';
     feature: Feature;
     visibility?: VisibilityIndicator;
@@ -3519,8 +3519,9 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
             case FilterElement: {
                 return this.isSubtype(ViewBodyElement, supertype);
             }
-            case FeatureMember: {
-                return this.isSubtype(FeatureBodyElement, supertype);
+            case FeatureMember:
+            case RelationshipElement: {
+                return this.isSubtype(FeatureBodyElement, supertype) || this.isSubtype(TypeBodyElement, supertype);
             }
             case FeatureTypingDecl:
             case Redefinition:
@@ -3560,9 +3561,6 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
             }
             case ParameterListPart: {
                 return this.isSubtype(ActionDefinition, supertype) || this.isSubtype(ActionUsage, supertype) || this.isSubtype(AnalysisCaseDefinition, supertype) || this.isSubtype(AnalysisCaseUsage, supertype) || this.isSubtype(CalculationDefinition, supertype) || this.isSubtype(CalculationUsage, supertype) || this.isSubtype(CaseDefinition, supertype) || this.isSubtype(CaseUsage, supertype) || this.isSubtype(ConcernDefinition, supertype) || this.isSubtype(ConstraintDefinition, supertype) || this.isSubtype(ConstraintUsage, supertype) || this.isSubtype(RequirementDefinition, supertype) || this.isSubtype(RequirementUsage, supertype) || this.isSubtype(UseCaseDefinition, supertype) || this.isSubtype(UseCaseUsage, supertype) || this.isSubtype(VerificationCaseDefinition, supertype) || this.isSubtype(VerificationCaseUsage, supertype) || this.isSubtype(ViewpointDefinition, supertype);
-            }
-            case RelationshipElement: {
-                return this.isSubtype(FeatureBodyElement, supertype) || this.isSubtype(TypeBodyElement, supertype);
             }
             case RenderingUsage:
             case ViewUsage: {
