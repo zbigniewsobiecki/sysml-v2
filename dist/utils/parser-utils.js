@@ -4,11 +4,49 @@ import { createSysMLServices } from '../language/sysml-module.js';
 // Lazy-initialized services singleton
 let _services;
 /**
+ * Simplify verbose Chevrotain error messages by truncating long lists of expected alternatives.
+ */
+function simplifyParserError(message) {
+    // Chevrotain errors list all expected alternatives - truncate these
+    const expectingMatch = message.match(/^Expecting[^:]*:/);
+    if (!expectingMatch)
+        return message;
+    const butFoundMatch = message.match(/but found:\s*['"]?([^'"}\n]+)['"]?/i);
+    const foundToken = butFoundMatch?.[1]?.trim() || "unexpected token";
+    // Extract first few alternatives
+    const alternatives = [];
+    const altRegex = /\d+\.\s*\[([^\]]+)\]/g;
+    let match;
+    while ((match = altRegex.exec(message)) && alternatives.length < 5) {
+        alternatives.push(match[1]);
+    }
+    if (alternatives.length > 0) {
+        const hasMore = altRegex.exec(message) !== null;
+        return `Unexpected '${foundToken}'. Expected: ${alternatives.join(", ")}${hasMore ? ", ..." : ""}`;
+    }
+    // Fallback: truncate if too long
+    return message.length > 200 ? message.slice(0, 200) + "..." : message;
+}
+/**
  * Get or create the SysML language services.
  */
 export function getServices() {
     if (!_services) {
-        _services = createSysMLServices(NodeFileSystem);
+        // Suppress Chevrotain grammar warnings during initialization
+        const originalWarn = console.warn;
+        console.warn = (...args) => {
+            const msg = args[0];
+            if (typeof msg === "string" && msg.includes("Ambiguous Alternatives")) {
+                return;
+            }
+            originalWarn.apply(console, args);
+        };
+        try {
+            _services = createSysMLServices(NodeFileSystem);
+        }
+        finally {
+            console.warn = originalWarn;
+        }
     }
     return _services;
 }
@@ -36,7 +74,7 @@ export async function parseDocument(content, uri = 'memory://document.sysml') {
         column: err.column ?? 0
     }));
     const parserErrors = parseResult.parserErrors.map((err) => ({
-        message: err.message,
+        message: simplifyParserError(err.message),
         line: err.token.startLine ?? 0,
         column: err.token.startColumn ?? 0
     }));
@@ -68,8 +106,11 @@ export async function validateDocument(content, uri = 'memory://document.sysml')
     await shared.workspace.DocumentBuilder.build([document], { validation: true });
     // Wait for validation to complete
     await waitForDocumentState(document, DocumentState.Validated);
-    // Extract diagnostics
-    const diagnostics = document.diagnostics ?? [];
+    // Extract diagnostics and simplify verbose parser error messages
+    const diagnostics = (document.diagnostics ?? []).map((d) => ({
+        ...d,
+        message: simplifyParserError(d.message)
+    }));
     const result = {
         ast: document.parseResult.value,
         diagnostics,
