@@ -55,7 +55,7 @@ Element:
     Feature | Connector | BindingConnector | Succession | ItemFlow |
     // SysML Definitions
     AttributeDefinition | EnumerationDefinition | OccurrenceDefinition |
-    ItemDefinition | PartDefinition | ConnectionDefinition | InterfaceDefinition |
+    ItemDefinition | PartDefinition | AssociationDefinition | ConnectionDefinition | InterfaceDefinition |
     PortDefinition | FlowConnectionDefinition | AllocationDefinition |
     ActionDefinition | StateDefinition | CalculationDefinition | ConstraintDefinition |
     RequirementDefinition | ConcernDefinition | CaseDefinition |
@@ -273,6 +273,10 @@ ItemDefinition:
 // --- Part Definition ---
 PartDefinition:
     TypePrefixFragment 'part' 'def' name=Name? TypeSpecializationFragment? body=TypeBodyRule;
+
+// --- Association Definition ---
+AssociationDefinition:
+    TypePrefixFragment 'association' 'def' name=Name? TypeSpecializationFragment? body=TypeBodyRule;
 
 // --- Connection Definition ---
 ConnectionDefinition:

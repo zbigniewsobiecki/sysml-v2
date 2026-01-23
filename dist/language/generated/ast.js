@@ -172,6 +172,10 @@ export const Association = 'Association';
 export function isAssociation(item) {
     return reflection.isInstance(item, Association);
 }
+export const AssociationDefinition = 'AssociationDefinition';
+export function isAssociationDefinition(item) {
+    return reflection.isInstance(item, AssociationDefinition);
+}
 export const AssumeConstraint = 'AssumeConstraint';
 export function isAssumeConstraint(item) {
     return reflection.isInstance(item, AssumeConstraint);
@@ -794,7 +798,7 @@ export function isViewBodyRule(item) {
 }
 export class SysMLAstReflection extends langium.AbstractAstReflection {
     getAllTypes() {
-        return [AcceptAction, ActionBodyElement, ActionBodyRule, ActionDefinition, ActionUsage, ActorMember, AdditiveExpression, AliasMember, Allocate, AllocationDefinition, AllocationUsage, AllocationUsageDecl, AnalysisCaseDefinition, AnalysisCaseUsage, AndExpression, AssertConstraint, AssignmentAction, Association, AssumeConstraint, AttributeDefinition, AttributeUsage, Behavior, BindingConnector, BodyExpression, CalculationBodyElement, CalculationBodyRule, CalculationDefinition, CalculationUsage, CaseBodyElement, CaseBodyRule, CaseDefinition, CaseUsage, Class, ClassificationExpression, Classifier, Comment, ConcernDefinition, ConcernUsage, ConditionalExpression, ConnectionDefinition, ConnectionUsage, ConnectionUsageDecl, Connector, ConnectorDecl, ConnectorEnd, ConstraintBodyElement, ConstraintBodyRule, ConstraintDefinition, ConstraintUsage, DataType, Dependency, DoAction, Documentation, EffectActionPart, Element, EntryAction, EnumerationBodyRule, EnumerationDefinition, EnumerationUsage, EqualityExpression, ExitAction, ExponentiationExpression, ExposeElement, ExtentExpression, Feature, FeatureBodyElement, FeatureBodyRule, FeatureChainExpression, FeatureChainRef, FeatureMember, FeatureReferenceExpression, FeatureReferenceMember, FeatureTypeRef, FeatureTypingDecl, FilterElement, FlowConnectionDefinition, FlowConnectionUsage, FlowConnectionUsageDecl, ForLoopAction, FramedConcern, FunctionDecl, GuardExpressionPart, IfThenAction, ImpliesExpression, Import, ImportReference, IncludeUseCaseUsage, InlineAction, InlinePartDecl, Interaction, InterfaceDefinition, InterfaceUsage, InterfaceUsageDecl, InvocationExpression, ItemDefinition, ItemFlow, ItemFlowDecl, ItemUsage, LibraryPackage, LiteralBoolean, LiteralDefault, LiteralExpression, LiteralInteger, LiteralNull, LiteralReal, LiteralString, LiteralValue, MetadataBodyElement, MetadataBodyOpt, MetadataDefinition, MetadataUsage, MetadataValue, MultiplicativeExpression, MultiplicityBounds, NamespaceElement, NullCoalescingExpression, ObjectiveMember, OccurrenceDefinition, OccurrenceUsage, OrExpression, OwnedExpression, OwningMembership, Package, PackageBody, ParameterListPart, ParameterMember, PartDefinition, PartUsage, PerformAction, PortDefinition, PortUsage, Predicate, QualifiedName, RangeExpression, Redefinition, RelationalExpression, RelationshipElement, RenderingDefinition, RenderingUsage, RequireConstraint, RequirementBodyElement, RequirementBodyRule, RequirementDefinition, RequirementUsage, ResultExpressionRule, ResultsBlock, ReturnTypePart, ReturnUsage, RootNamespace, SendAction, Specialization, StakeholderMember, StateBodyElement, StateBodyRule, StateDefinition, StateUsage, Struct, Subclassification, SubjectUsage, Subsetting, Succession, SuccessionDecl, SuccessionUsage, TextualRepresentation, TransitionBodyRule, TransitionDecl, TransitionUsage, TriggerActionPart, TypeBodyElement, TypeBodyRule, TypeDecl, UnaryExpression, UseCaseBodyElement, UseCaseBodyRule, UseCaseDefinition, UseCaseUsage, VerificationCaseDefinition, VerificationCaseUsage, ViewBodyElement, ViewBodyRule, ViewDefinition, ViewUsage, ViewpointDefinition, ViewpointUsage, WhileLoopAction, XorExpression];
+        return [AcceptAction, ActionBodyElement, ActionBodyRule, ActionDefinition, ActionUsage, ActorMember, AdditiveExpression, AliasMember, Allocate, AllocationDefinition, AllocationUsage, AllocationUsageDecl, AnalysisCaseDefinition, AnalysisCaseUsage, AndExpression, AssertConstraint, AssignmentAction, Association, AssociationDefinition, AssumeConstraint, AttributeDefinition, AttributeUsage, Behavior, BindingConnector, BodyExpression, CalculationBodyElement, CalculationBodyRule, CalculationDefinition, CalculationUsage, CaseBodyElement, CaseBodyRule, CaseDefinition, CaseUsage, Class, ClassificationExpression, Classifier, Comment, ConcernDefinition, ConcernUsage, ConditionalExpression, ConnectionDefinition, ConnectionUsage, ConnectionUsageDecl, Connector, ConnectorDecl, ConnectorEnd, ConstraintBodyElement, ConstraintBodyRule, ConstraintDefinition, ConstraintUsage, DataType, Dependency, DoAction, Documentation, EffectActionPart, Element, EntryAction, EnumerationBodyRule, EnumerationDefinition, EnumerationUsage, EqualityExpression, ExitAction, ExponentiationExpression, ExposeElement, ExtentExpression, Feature, FeatureBodyElement, FeatureBodyRule, FeatureChainExpression, FeatureChainRef, FeatureMember, FeatureReferenceExpression, FeatureReferenceMember, FeatureTypeRef, FeatureTypingDecl, FilterElement, FlowConnectionDefinition, FlowConnectionUsage, FlowConnectionUsageDecl, ForLoopAction, FramedConcern, FunctionDecl, GuardExpressionPart, IfThenAction, ImpliesExpression, Import, ImportReference, IncludeUseCaseUsage, InlineAction, InlinePartDecl, Interaction, InterfaceDefinition, InterfaceUsage, InterfaceUsageDecl, InvocationExpression, ItemDefinition, ItemFlow, ItemFlowDecl, ItemUsage, LibraryPackage, LiteralBoolean, LiteralDefault, LiteralExpression, LiteralInteger, LiteralNull, LiteralReal, LiteralString, LiteralValue, MetadataBodyElement, MetadataBodyOpt, MetadataDefinition, MetadataUsage, MetadataValue, MultiplicativeExpression, MultiplicityBounds, NamespaceElement, NullCoalescingExpression, ObjectiveMember, OccurrenceDefinition, OccurrenceUsage, OrExpression, OwnedExpression, OwningMembership, Package, PackageBody, ParameterListPart, ParameterMember, PartDefinition, PartUsage, PerformAction, PortDefinition, PortUsage, Predicate, QualifiedName, RangeExpression, Redefinition, RelationalExpression, RelationshipElement, RenderingDefinition, RenderingUsage, RequireConstraint, RequirementBodyElement, RequirementBodyRule, RequirementDefinition, RequirementUsage, ResultExpressionRule, ResultsBlock, ReturnTypePart, ReturnUsage, RootNamespace, SendAction, Specialization, StakeholderMember, StateBodyElement, StateBodyRule, StateDefinition, StateUsage, Struct, Subclassification, SubjectUsage, Subsetting, Succession, SuccessionDecl, SuccessionUsage, TextualRepresentation, TransitionBodyRule, TransitionDecl, TransitionUsage, TriggerActionPart, TypeBodyElement, TypeBodyRule, TypeDecl, UnaryExpression, UseCaseBodyElement, UseCaseBodyRule, UseCaseDefinition, UseCaseUsage, VerificationCaseDefinition, VerificationCaseUsage, ViewBodyElement, ViewBodyRule, ViewDefinition, ViewUsage, ViewpointDefinition, ViewpointUsage, WhileLoopAction, XorExpression];
     }
     computeIsSubtype(subtype, supertype) {
         switch (subtype) {
@@ -819,6 +823,7 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
             case AnalysisCaseDefinition:
             case AnalysisCaseUsage:
             case Association:
+            case AssociationDefinition:
             case AttributeDefinition:
             case Behavior:
             case BindingConnector:
@@ -1247,6 +1252,22 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
                         { name: 'disjointTypes', defaultValue: [] },
                         { name: 'isAbstract', defaultValue: false },
                         { name: 'isStruct', defaultValue: false },
+                        { name: 'isSufficient', defaultValue: false },
+                        { name: 'multiplicity' },
+                        { name: 'name' },
+                        { name: 'specializations', defaultValue: [] },
+                        { name: 'visibility' }
+                    ]
+                };
+            }
+            case AssociationDefinition: {
+                return {
+                    name: AssociationDefinition,
+                    properties: [
+                        { name: 'body' },
+                        { name: 'conjugatedType' },
+                        { name: 'disjointTypes', defaultValue: [] },
+                        { name: 'isAbstract', defaultValue: false },
                         { name: 'isSufficient', defaultValue: false },
                         { name: 'multiplicity' },
                         { name: 'name' },

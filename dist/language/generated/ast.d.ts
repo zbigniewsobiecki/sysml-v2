@@ -15,7 +15,7 @@ export declare const SysMLTerminals: {
     WS: RegExp;
 };
 export type SysMLTerminalNames = keyof typeof SysMLTerminals;
-export type SysMLKeywordNames = "!" | "!=" | "!==" | "#" | "%" | "&" | "(" | ")" | "*" | "**" | "+" | "," | "-" | "." | ".." | "/" | ":" | "::" | "::=" | ":=" | ":>" | ":>>" | ";" | "<" | "<=" | "=" | "==" | "===" | "=>" | ">" | ">=" | "?" | "??" | "@" | "[" | "]" | "^" | "about" | "abstract" | "accept" | "action" | "actor" | "alias" | "all" | "allocate" | "allocation" | "analysis" | "and" | "as" | "assert" | "assign" | "assoc" | "assume" | "attribute" | "behavior" | "binding" | "by" | "calc" | "case" | "class" | "classifier" | "comment" | "composite" | "concern" | "conjugate" | "connect" | "connection" | "connector" | "constraint" | "datatype" | "def" | "default" | "dependency" | "derived" | "disjoint" | "do" | "doc" | "else" | "end" | "entry" | "enum" | "exit" | "expose" | "false" | "feature" | "featuring" | "filter" | "first" | "flow" | "for" | "frame" | "from" | "function" | "hastype" | "if" | "implies" | "import" | "in" | "include" | "inout" | "interaction" | "interface" | "istype" | "item" | "language" | "library" | "lifecycle" | "meta" | "metadata" | "not" | "null" | "objective" | "occurrence" | "of" | "or" | "out" | "package" | "parallel" | "part" | "perform" | "port" | "portion" | "predicate" | "private" | "protected" | "public" | "readonly" | "redefines" | "redefinition" | "ref" | "references" | "rendering" | "rep" | "require" | "requirement" | "results" | "return" | "send" | "specialization" | "specializes" | "stakeholder" | "standard" | "state" | "struct" | "subclassification" | "subclassifier" | "subject" | "subset" | "subsets" | "subtype" | "succession" | "then" | "to" | "transition" | "true" | "type" | "typed" | "until" | "use" | "variant" | "verification" | "via" | "view" | "viewpoint" | "while" | "xor" | "{" | "|" | "}" | "~";
+export type SysMLKeywordNames = "!" | "!=" | "!==" | "#" | "%" | "&" | "(" | ")" | "*" | "**" | "+" | "," | "-" | "." | ".." | "/" | ":" | "::" | "::=" | ":=" | ":>" | ":>>" | ";" | "<" | "<=" | "=" | "==" | "===" | "=>" | ">" | ">=" | "?" | "??" | "@" | "[" | "]" | "^" | "about" | "abstract" | "accept" | "action" | "actor" | "alias" | "all" | "allocate" | "allocation" | "analysis" | "and" | "as" | "assert" | "assign" | "assoc" | "association" | "assume" | "attribute" | "behavior" | "binding" | "by" | "calc" | "case" | "class" | "classifier" | "comment" | "composite" | "concern" | "conjugate" | "connect" | "connection" | "connector" | "constraint" | "datatype" | "def" | "default" | "dependency" | "derived" | "disjoint" | "do" | "doc" | "else" | "end" | "entry" | "enum" | "exit" | "expose" | "false" | "feature" | "featuring" | "filter" | "first" | "flow" | "for" | "frame" | "from" | "function" | "hastype" | "if" | "implies" | "import" | "in" | "include" | "inout" | "interaction" | "interface" | "istype" | "item" | "language" | "library" | "lifecycle" | "meta" | "metadata" | "not" | "null" | "objective" | "occurrence" | "of" | "or" | "out" | "package" | "parallel" | "part" | "perform" | "port" | "portion" | "predicate" | "private" | "protected" | "public" | "readonly" | "redefines" | "redefinition" | "ref" | "references" | "rendering" | "rep" | "require" | "requirement" | "results" | "return" | "send" | "specialization" | "specializes" | "stakeholder" | "standard" | "state" | "struct" | "subclassification" | "subclassifier" | "subject" | "subset" | "subsets" | "subtype" | "succession" | "then" | "to" | "transition" | "true" | "type" | "typed" | "until" | "use" | "variant" | "verification" | "via" | "view" | "viewpoint" | "while" | "xor" | "{" | "|" | "}" | "~";
 export type SysMLTokenNames = SysMLTerminalNames | SysMLKeywordNames;
 export type ActionBodyElement = AcceptAction | ActionUsage | AssertConstraint | AssignmentAction | ForLoopAction | IfThenAction | NamespaceElement | PerformAction | SendAction | SuccessionUsage | WhileLoopAction;
 export declare const ActionBodyElement = "ActionBodyElement";
@@ -33,7 +33,7 @@ export declare function isClassificationOperator(item: unknown): item is Classif
 export type ConstraintBodyElement = AttributeUsage | NamespaceElement;
 export declare const ConstraintBodyElement = "ConstraintBodyElement";
 export declare function isConstraintBodyElement(item: unknown): item is ConstraintBodyElement;
-export type Element = ActionDefinition | ActionUsage | Allocate | AllocationDefinition | AllocationUsage | AnalysisCaseDefinition | AnalysisCaseUsage | Association | AttributeDefinition | AttributeUsage | Behavior | BindingConnector | CalculationDefinition | CalculationUsage | CaseDefinition | CaseUsage | Class | Classifier | Comment | ConcernDefinition | ConcernUsage | ConnectionDefinition | ConnectionUsage | Connector | ConstraintDefinition | ConstraintUsage | DataType | Dependency | Documentation | EnumerationDefinition | EnumerationUsage | Feature | FeatureTypingDecl | FlowConnectionDefinition | FlowConnectionUsage | FunctionDecl | Interaction | InterfaceDefinition | InterfaceUsage | ItemDefinition | ItemFlow | ItemUsage | LibraryPackage | MetadataDefinition | MetadataUsage | OccurrenceDefinition | OccurrenceUsage | Package | PartDefinition | PartUsage | PortDefinition | PortUsage | Predicate | Redefinition | RenderingDefinition | RenderingUsage | RequirementDefinition | RequirementUsage | Specialization | StateDefinition | StateUsage | Struct | Subclassification | Subsetting | Succession | TextualRepresentation | TypeDecl | UseCaseDefinition | UseCaseUsage | VerificationCaseDefinition | VerificationCaseUsage | ViewDefinition | ViewUsage | ViewpointDefinition | ViewpointUsage;
+export type Element = ActionDefinition | ActionUsage | Allocate | AllocationDefinition | AllocationUsage | AnalysisCaseDefinition | AnalysisCaseUsage | Association | AssociationDefinition | AttributeDefinition | AttributeUsage | Behavior | BindingConnector | CalculationDefinition | CalculationUsage | CaseDefinition | CaseUsage | Class | Classifier | Comment | ConcernDefinition | ConcernUsage | ConnectionDefinition | ConnectionUsage | Connector | ConstraintDefinition | ConstraintUsage | DataType | Dependency | Documentation | EnumerationDefinition | EnumerationUsage | Feature | FeatureTypingDecl | FlowConnectionDefinition | FlowConnectionUsage | FunctionDecl | Interaction | InterfaceDefinition | InterfaceUsage | ItemDefinition | ItemFlow | ItemUsage | LibraryPackage | MetadataDefinition | MetadataUsage | OccurrenceDefinition | OccurrenceUsage | Package | PartDefinition | PartUsage | PortDefinition | PortUsage | Predicate | Redefinition | RenderingDefinition | RenderingUsage | RequirementDefinition | RequirementUsage | Specialization | StateDefinition | StateUsage | Struct | Subclassification | Subsetting | Succession | TextualRepresentation | TypeDecl | UseCaseDefinition | UseCaseUsage | VerificationCaseDefinition | VerificationCaseUsage | ViewDefinition | ViewUsage | ViewpointDefinition | ViewpointUsage;
 export declare const Element = "Element";
 export declare function isElement(item: unknown): item is Element;
 export type EqualityOperator = '!=' | '!==' | '==' | '===';
@@ -168,7 +168,7 @@ export interface Allocate extends langium.AstNode {
 export declare const Allocate = "Allocate";
 export declare function isAllocate(item: unknown): item is Allocate;
 export interface AllocationDefinition extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'AllocationDefinition' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -258,7 +258,7 @@ export interface AssignmentAction extends langium.AstNode {
 export declare const AssignmentAction = "AssignmentAction";
 export declare function isAssignmentAction(item: unknown): item is AssignmentAction;
 export interface Association extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'Association' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -272,6 +272,21 @@ export interface Association extends langium.AstNode {
 }
 export declare const Association = "Association";
 export declare function isAssociation(item: unknown): item is Association;
+export interface AssociationDefinition extends langium.AstNode {
+    readonly $container: OwningMembership;
+    readonly $type: 'AssociationDefinition';
+    body: TypeBodyRule;
+    conjugatedType?: QualifiedName;
+    disjointTypes: Array<QualifiedName>;
+    isAbstract: boolean;
+    isSufficient: boolean;
+    multiplicity?: MultiplicityBounds;
+    name?: Name;
+    specializations: Array<QualifiedName>;
+    visibility?: VisibilityIndicator;
+}
+export declare const AssociationDefinition = "AssociationDefinition";
+export declare function isAssociationDefinition(item: unknown): item is AssociationDefinition;
 export interface AssumeConstraint extends langium.AstNode {
     readonly $container: RequirementBodyRule;
     readonly $type: 'AssumeConstraint';
@@ -321,7 +336,7 @@ export interface AttributeUsage extends langium.AstNode {
 export declare const AttributeUsage = "AttributeUsage";
 export declare function isAttributeUsage(item: unknown): item is AttributeUsage;
 export interface Behavior extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'Behavior' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -433,7 +448,7 @@ export interface CaseUsage extends langium.AstNode {
 export declare const CaseUsage = "CaseUsage";
 export declare function isCaseUsage(item: unknown): item is CaseUsage;
 export interface Class extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'Class' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -456,7 +471,7 @@ export interface ClassificationExpression extends langium.AstNode {
 export declare const ClassificationExpression = "ClassificationExpression";
 export declare function isClassificationExpression(item: unknown): item is ClassificationExpression;
 export interface Classifier extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'Classifier' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -617,7 +632,7 @@ export interface ConstraintUsage extends langium.AstNode {
 export declare const ConstraintUsage = "ConstraintUsage";
 export declare function isConstraintUsage(item: unknown): item is ConstraintUsage;
 export interface DataType extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'DataType' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -873,7 +888,7 @@ export interface FramedConcern extends langium.AstNode {
 export declare const FramedConcern = "FramedConcern";
 export declare function isFramedConcern(item: unknown): item is FramedConcern;
 export interface FunctionDecl extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'FunctionDecl' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -953,7 +968,7 @@ export interface InlinePartDecl extends langium.AstNode {
 export declare const InlinePartDecl = "InlinePartDecl";
 export declare function isInlinePartDecl(item: unknown): item is InlinePartDecl;
 export interface Interaction extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'Interaction' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -1123,7 +1138,7 @@ export interface MetadataBodyOpt extends langium.AstNode {
 export declare const MetadataBodyOpt = "MetadataBodyOpt";
 export declare function isMetadataBodyOpt(item: unknown): item is MetadataBodyOpt;
 export interface MetadataDefinition extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'MetadataDefinition' | 'TypeBodyRule';
     about: Array<QualifiedName>;
     conjugatedType?: QualifiedName;
@@ -1166,7 +1181,7 @@ export interface MultiplicativeExpression extends langium.AstNode {
 export declare const MultiplicativeExpression = "MultiplicativeExpression";
 export declare function isMultiplicativeExpression(item: unknown): item is MultiplicativeExpression;
 export interface MultiplicityBounds extends langium.AstNode {
-    readonly $container: ActionDefinition | ActionUsage | AllocationDefinition | AnalysisCaseDefinition | AnalysisCaseUsage | Association | AttributeDefinition | AttributeUsage | Behavior | CalculationDefinition | CalculationUsage | CaseDefinition | CaseUsage | Class | Classifier | ConcernDefinition | ConcernUsage | ConnectionDefinition | ConnectorEnd | ConstraintDefinition | ConstraintUsage | DataType | EnumerationDefinition | Feature | FlowConnectionDefinition | FunctionDecl | Interaction | InterfaceDefinition | ItemDefinition | ItemUsage | MetadataDefinition | OccurrenceDefinition | OccurrenceUsage | ParameterMember | PartDefinition | PartUsage | PortDefinition | PortUsage | Predicate | RenderingDefinition | RenderingUsage | RequirementDefinition | RequirementUsage | StateDefinition | StateUsage | Struct | SubjectUsage | TypeDecl | UseCaseDefinition | UseCaseUsage | VerificationCaseDefinition | VerificationCaseUsage | ViewDefinition | ViewUsage | ViewpointDefinition | ViewpointUsage;
+    readonly $container: ActionDefinition | ActionUsage | AllocationDefinition | AnalysisCaseDefinition | AnalysisCaseUsage | Association | AssociationDefinition | AttributeDefinition | AttributeUsage | Behavior | CalculationDefinition | CalculationUsage | CaseDefinition | CaseUsage | Class | Classifier | ConcernDefinition | ConcernUsage | ConnectionDefinition | ConnectorEnd | ConstraintDefinition | ConstraintUsage | DataType | EnumerationDefinition | Feature | FlowConnectionDefinition | FunctionDecl | Interaction | InterfaceDefinition | ItemDefinition | ItemUsage | MetadataDefinition | OccurrenceDefinition | OccurrenceUsage | ParameterMember | PartDefinition | PartUsage | PortDefinition | PortUsage | Predicate | RenderingDefinition | RenderingUsage | RequirementDefinition | RequirementUsage | StateDefinition | StateUsage | Struct | SubjectUsage | TypeDecl | UseCaseDefinition | UseCaseUsage | VerificationCaseDefinition | VerificationCaseUsage | ViewDefinition | ViewUsage | ViewpointDefinition | ViewpointUsage;
     readonly $type: 'MultiplicityBounds';
     lowerBound?: MultiplicityBoundValue;
     upperBound: MultiplicityBoundValue;
@@ -1189,7 +1204,7 @@ export interface ObjectiveMember extends langium.AstNode {
 export declare const ObjectiveMember = "ObjectiveMember";
 export declare function isObjectiveMember(item: unknown): item is ObjectiveMember;
 export interface OccurrenceDefinition extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'OccurrenceDefinition' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -1358,7 +1373,7 @@ export interface PortUsage extends langium.AstNode {
 export declare const PortUsage = "PortUsage";
 export declare function isPortUsage(item: unknown): item is PortUsage;
 export interface Predicate extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'Predicate' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -1372,7 +1387,7 @@ export interface Predicate extends langium.AstNode {
 export declare const Predicate = "Predicate";
 export declare function isPredicate(item: unknown): item is Predicate;
 export interface QualifiedName extends langium.AstNode {
-    readonly $container: AcceptAction | ActionDefinition | ActionUsage | AliasMember | AllocationDefinition | AllocationUsageDecl | AnalysisCaseDefinition | AnalysisCaseUsage | AssignmentAction | Association | AttributeDefinition | AttributeUsage | Behavior | CalculationDefinition | CalculationUsage | CaseDefinition | CaseUsage | Class | ClassificationExpression | Classifier | Comment | ConcernDefinition | ConcernUsage | ConnectionDefinition | ConnectionUsageDecl | ConnectorDecl | ConstraintDefinition | ConstraintUsage | DataType | Dependency | Documentation | EnumerationDefinition | EnumerationUsage | ExposeElement | ExtentExpression | Feature | FeatureReferenceExpression | FeatureReferenceMember | FeatureTypeRef | FeatureTypingDecl | FlowConnectionDefinition | FlowConnectionUsageDecl | ForLoopAction | FunctionDecl | InlineAction | InlinePartDecl | Interaction | InterfaceDefinition | InterfaceUsageDecl | InvocationExpression | ItemDefinition | ItemFlowDecl | ItemUsage | MetadataBodyElement | MetadataDefinition | MetadataUsage | MetadataValue | OccurrenceDefinition | OccurrenceUsage | ParameterMember | PartDefinition | PartUsage | PerformAction | PortDefinition | PortUsage | Predicate | Redefinition | RenderingDefinition | RenderingUsage | RequirementDefinition | RequirementUsage | ReturnTypePart | ReturnUsage | SendAction | Specialization | StateDefinition | StateUsage | Struct | Subclassification | SubjectUsage | Subsetting | SuccessionDecl | TransitionDecl | TriggerActionPart | TypeDecl | UseCaseDefinition | UseCaseUsage | VerificationCaseDefinition | VerificationCaseUsage | ViewDefinition | ViewUsage | ViewpointDefinition | ViewpointUsage;
+    readonly $container: AcceptAction | ActionDefinition | ActionUsage | AliasMember | AllocationDefinition | AllocationUsageDecl | AnalysisCaseDefinition | AnalysisCaseUsage | AssignmentAction | Association | AssociationDefinition | AttributeDefinition | AttributeUsage | Behavior | CalculationDefinition | CalculationUsage | CaseDefinition | CaseUsage | Class | ClassificationExpression | Classifier | Comment | ConcernDefinition | ConcernUsage | ConnectionDefinition | ConnectionUsageDecl | ConnectorDecl | ConstraintDefinition | ConstraintUsage | DataType | Dependency | Documentation | EnumerationDefinition | EnumerationUsage | ExposeElement | ExtentExpression | Feature | FeatureReferenceExpression | FeatureReferenceMember | FeatureTypeRef | FeatureTypingDecl | FlowConnectionDefinition | FlowConnectionUsageDecl | ForLoopAction | FunctionDecl | InlineAction | InlinePartDecl | Interaction | InterfaceDefinition | InterfaceUsageDecl | InvocationExpression | ItemDefinition | ItemFlowDecl | ItemUsage | MetadataBodyElement | MetadataDefinition | MetadataUsage | MetadataValue | OccurrenceDefinition | OccurrenceUsage | ParameterMember | PartDefinition | PartUsage | PerformAction | PortDefinition | PortUsage | Predicate | Redefinition | RenderingDefinition | RenderingUsage | RequirementDefinition | RequirementUsage | ReturnTypePart | ReturnUsage | SendAction | Specialization | StateDefinition | StateUsage | Struct | Subclassification | SubjectUsage | Subsetting | SuccessionDecl | TransitionDecl | TriggerActionPart | TypeDecl | UseCaseDefinition | UseCaseUsage | VerificationCaseDefinition | VerificationCaseUsage | ViewDefinition | ViewUsage | ViewpointDefinition | ViewpointUsage;
     readonly $type: 'QualifiedName';
     names: Array<NamePart>;
 }
@@ -1405,7 +1420,7 @@ export interface RelationalExpression extends langium.AstNode {
 export declare const RelationalExpression = "RelationalExpression";
 export declare function isRelationalExpression(item: unknown): item is RelationalExpression;
 export interface RenderingDefinition extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'RenderingDefinition' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -1419,7 +1434,7 @@ export interface RenderingDefinition extends langium.AstNode {
 export declare const RenderingDefinition = "RenderingDefinition";
 export declare function isRenderingDefinition(item: unknown): item is RenderingDefinition;
 export interface RenderingUsage extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition | ViewBodyRule;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition | ViewBodyRule;
     readonly $type: 'RenderingUsage' | 'TypeBodyRule';
     direction?: FeatureDirectionKind;
     featureTypes: Array<FeatureTypeRef>;
@@ -1585,7 +1600,7 @@ export interface StateUsage extends langium.AstNode {
 export declare const StateUsage = "StateUsage";
 export declare function isStateUsage(item: unknown): item is StateUsage;
 export interface Struct extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'Struct' | 'TypeBodyRule';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -1680,7 +1695,7 @@ export interface TriggerActionPart extends langium.AstNode {
 export declare const TriggerActionPart = "TriggerActionPart";
 export declare function isTriggerActionPart(item: unknown): item is TriggerActionPart;
 export interface TypeDecl extends langium.AstNode {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | OwningMembership | PartDefinition | PortDefinition;
     readonly $type: 'TypeBodyRule' | 'TypeDecl';
     conjugatedType?: QualifiedName;
     disjointTypes: Array<QualifiedName>;
@@ -1880,7 +1895,7 @@ export interface ParameterListPart extends ActionDefinition, ActionUsage, Analys
 export declare const ParameterListPart = "ParameterListPart";
 export declare function isParameterListPart(item: unknown): item is ParameterListPart;
 export interface TypeBodyRule extends AllocationDefinition, Association, Behavior, Class, Classifier, DataType, FunctionDecl, Interaction, MetadataDefinition, OccurrenceDefinition, Predicate, RenderingDefinition, RenderingUsage, Struct, TypeDecl {
-    readonly $container: AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | PartDefinition | PortDefinition;
+    readonly $container: AssociationDefinition | AttributeDefinition | ConnectionDefinition | FlowConnectionDefinition | InterfaceDefinition | ItemDefinition | PartDefinition | PortDefinition;
     readonly $type: 'TypeBodyRule';
     elements: Array<TypeBodyElement>;
 }
@@ -2045,6 +2060,7 @@ export type SysMLAstType = {
     AssertConstraint: AssertConstraint;
     AssignmentAction: AssignmentAction;
     Association: Association;
+    AssociationDefinition: AssociationDefinition;
     AssumeConstraint: AssumeConstraint;
     AttributeDefinition: AttributeDefinition;
     AttributeUsage: AttributeUsage;

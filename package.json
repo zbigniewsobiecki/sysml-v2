@@ -1,6 +1,6 @@
 {
   "name": "sysml-parser",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A TypeScript parser for SysML v2 (Systems Modeling Language version 2.0)",
   "type": "module",
   "main": "dist/index.js",
