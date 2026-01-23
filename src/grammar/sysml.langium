@@ -833,20 +833,36 @@ NamePart returns string:
 Name returns string:
     ID | UNRESTRICTED_NAME |
     // Allow these keywords as names (common attribute/feature names)
-    'abstract' | 'action' | 'actor' | 'allocation' | 'analysis' |
-    'assert' | 'assume' | 'attribute' | 'behavior' | 'binding' |
-    'calc' | 'case' | 'comment' | 'composite' | 'concern' |
-    'connection' | 'connector' | 'constraint' | 'default' | 'dependency' |
-    'derived' | 'do' | 'doc' | 'end' | 'entry' | 'enum' | 'exit' |
-    'expose' | 'feature' | 'filter' | 'first' | 'flow' | 'frame' |
-    'if' | 'include' | 'interaction' | 'interface' | 'item' |
-    'language' | 'library' | 'lifecycle' | 'link' | 'meta' | 'metadata' |
-    'objective' | 'occurrence' | 'parallel' | 'part' | 'perform' |
-    'port' | 'portion' | 'predicate' | 'readonly' | 'ref' |
-    'rendering' | 'requirement' | 'results' | 'return' | 'send' |
-    'snapshot' | 'stakeholder' | 'standard' | 'state' | 'subject' |
-    'succession' | 'timeslice' | 'transition' | 'type' | 'use' |
-    'variant' | 'verification' | 'view' | 'viewpoint' | 'while';
+    // This prevents parser hangs when keywords are used as identifiers
+    'about' | 'abstract' | 'accept' | 'action' | 'actor' | 'alias' |
+    'all' | 'allocate' | 'allocation' | 'analysis' | 'as' | 'assert' |
+    'assign' | 'assoc' | 'association' | 'assume' | 'attribute' |
+    'behavior' | 'binding' | 'by' |
+    'calc' | 'case' | 'class' | 'classifier' | 'comment' | 'composite' |
+    'concern' | 'conjugate' | 'connect' | 'connection' | 'connector' |
+    'constraint' |
+    'datatype' | 'def' | 'default' | 'dependency' | 'derived' |
+    'disjoint' | 'do' | 'doc' |
+    'else' | 'end' | 'entry' | 'enum' | 'exit' | 'expose' |
+    'feature' | 'featuring' | 'filter' | 'first' | 'flow' | 'for' |
+    'frame' | 'from' | 'function' |
+    'hastype' |
+    'if' | 'import' | 'in' | 'include' | 'inout' | 'interaction' |
+    'interface' | 'istype' | 'item' |
+    'language' | 'library' | 'lifecycle' | 'link' |
+    'meta' | 'metadata' |
+    'objective' | 'occurrence' | 'of' | 'out' |
+    'package' | 'parallel' | 'part' | 'perform' | 'port' | 'portion' |
+    'predicate' | 'private' | 'protected' | 'public' |
+    'readonly' | 'redefines' | 'redefinition' | 'ref' | 'references' |
+    'rendering' | 'rep' | 'require' | 'requirement' | 'results' | 'return' |
+    'send' | 'snapshot' | 'specialization' | 'specializes' | 'stakeholder' |
+    'standard' | 'state' | 'struct' | 'subclassification' | 'subclassifier' |
+    'subject' | 'subset' | 'subsets' | 'subtype' | 'succession' |
+    'then' | 'timeslice' | 'to' | 'transition' | 'type' | 'typed' |
+    'until' | 'use' |
+    'variant' | 'verification' | 'via' | 'view' | 'viewpoint' |
+    'while';
 
 VisibilityIndicator returns string:
     'public' | 'private' | 'protected';

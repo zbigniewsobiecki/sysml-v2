@@ -13248,7 +13248,15 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "about"
+          },
+          {
+            "$type": "Keyword",
             "value": "abstract"
+          },
+          {
+            "$type": "Keyword",
+            "value": "accept"
           },
           {
             "$type": "Keyword",
@@ -13260,6 +13268,18 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "alias"
+          },
+          {
+            "$type": "Keyword",
+            "value": "all"
+          },
+          {
+            "$type": "Keyword",
+            "value": "allocate"
+          },
+          {
+            "$type": "Keyword",
             "value": "allocation"
           },
           {
@@ -13268,7 +13288,23 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "as"
+          },
+          {
+            "$type": "Keyword",
             "value": "assert"
+          },
+          {
+            "$type": "Keyword",
+            "value": "assign"
+          },
+          {
+            "$type": "Keyword",
+            "value": "assoc"
+          },
+          {
+            "$type": "Keyword",
+            "value": "association"
           },
           {
             "$type": "Keyword",
@@ -13288,11 +13324,23 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "by"
+          },
+          {
+            "$type": "Keyword",
             "value": "calc"
           },
           {
             "$type": "Keyword",
             "value": "case"
+          },
+          {
+            "$type": "Keyword",
+            "value": "class"
+          },
+          {
+            "$type": "Keyword",
+            "value": "classifier"
           },
           {
             "$type": "Keyword",
@@ -13308,6 +13356,14 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "conjugate"
+          },
+          {
+            "$type": "Keyword",
+            "value": "connect"
+          },
+          {
+            "$type": "Keyword",
             "value": "connection"
           },
           {
@@ -13317,6 +13373,14 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           {
             "$type": "Keyword",
             "value": "constraint"
+          },
+          {
+            "$type": "Keyword",
+            "value": "datatype"
+          },
+          {
+            "$type": "Keyword",
+            "value": "def"
           },
           {
             "$type": "Keyword",
@@ -13332,11 +13396,19 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "disjoint"
+          },
+          {
+            "$type": "Keyword",
             "value": "do"
           },
           {
             "$type": "Keyword",
             "value": "doc"
+          },
+          {
+            "$type": "Keyword",
+            "value": "else"
           },
           {
             "$type": "Keyword",
@@ -13364,6 +13436,10 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "featuring"
+          },
+          {
+            "$type": "Keyword",
             "value": "filter"
           },
           {
@@ -13376,7 +13452,23 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "for"
+          },
+          {
+            "$type": "Keyword",
             "value": "frame"
+          },
+          {
+            "$type": "Keyword",
+            "value": "from"
+          },
+          {
+            "$type": "Keyword",
+            "value": "function"
+          },
+          {
+            "$type": "Keyword",
+            "value": "hastype"
           },
           {
             "$type": "Keyword",
@@ -13384,7 +13476,19 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "import"
+          },
+          {
+            "$type": "Keyword",
+            "value": "in"
+          },
+          {
+            "$type": "Keyword",
             "value": "include"
+          },
+          {
+            "$type": "Keyword",
+            "value": "inout"
           },
           {
             "$type": "Keyword",
@@ -13393,6 +13497,10 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           {
             "$type": "Keyword",
             "value": "interface"
+          },
+          {
+            "$type": "Keyword",
+            "value": "istype"
           },
           {
             "$type": "Keyword",
@@ -13432,6 +13540,18 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "of"
+          },
+          {
+            "$type": "Keyword",
+            "value": "out"
+          },
+          {
+            "$type": "Keyword",
+            "value": "package"
+          },
+          {
+            "$type": "Keyword",
             "value": "parallel"
           },
           {
@@ -13456,7 +13576,27 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "private"
+          },
+          {
+            "$type": "Keyword",
+            "value": "protected"
+          },
+          {
+            "$type": "Keyword",
+            "value": "public"
+          },
+          {
+            "$type": "Keyword",
             "value": "readonly"
+          },
+          {
+            "$type": "Keyword",
+            "value": "redefines"
+          },
+          {
+            "$type": "Keyword",
+            "value": "redefinition"
           },
           {
             "$type": "Keyword",
@@ -13464,7 +13604,19 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "references"
+          },
+          {
+            "$type": "Keyword",
             "value": "rendering"
+          },
+          {
+            "$type": "Keyword",
+            "value": "rep"
+          },
+          {
+            "$type": "Keyword",
+            "value": "require"
           },
           {
             "$type": "Keyword",
@@ -13488,6 +13640,14 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "specialization"
+          },
+          {
+            "$type": "Keyword",
+            "value": "specializes"
+          },
+          {
+            "$type": "Keyword",
             "value": "stakeholder"
           },
           {
@@ -13500,7 +13660,31 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "struct"
+          },
+          {
+            "$type": "Keyword",
+            "value": "subclassification"
+          },
+          {
+            "$type": "Keyword",
+            "value": "subclassifier"
+          },
+          {
+            "$type": "Keyword",
             "value": "subject"
+          },
+          {
+            "$type": "Keyword",
+            "value": "subset"
+          },
+          {
+            "$type": "Keyword",
+            "value": "subsets"
+          },
+          {
+            "$type": "Keyword",
+            "value": "subtype"
           },
           {
             "$type": "Keyword",
@@ -13508,7 +13692,15 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           },
           {
             "$type": "Keyword",
+            "value": "then"
+          },
+          {
+            "$type": "Keyword",
             "value": "timeslice"
+          },
+          {
+            "$type": "Keyword",
+            "value": "to"
           },
           {
             "$type": "Keyword",
@@ -13517,6 +13709,14 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           {
             "$type": "Keyword",
             "value": "type"
+          },
+          {
+            "$type": "Keyword",
+            "value": "typed"
+          },
+          {
+            "$type": "Keyword",
+            "value": "until"
           },
           {
             "$type": "Keyword",
@@ -13529,6 +13729,10 @@ export const SysMLGrammar = (): Grammar => loadedSysMLGrammar ?? (loadedSysMLGra
           {
             "$type": "Keyword",
             "value": "verification"
+          },
+          {
+            "$type": "Keyword",
+            "value": "via"
           },
           {
             "$type": "Keyword",
