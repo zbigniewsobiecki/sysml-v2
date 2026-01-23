@@ -198,7 +198,7 @@ export type SysMLKeywordNames =
 
 export type SysMLTokenNames = SysMLTerminalNames | SysMLKeywordNames;
 
-export type ActionBodyElement = AcceptAction | ActionUsage | AssertConstraint | AssignmentAction | ForLoopAction | IfThenAction | NamespaceElement | PerformAction | SendAction | SuccessionUsage | WhileLoopAction;
+export type ActionBodyElement = AcceptAction | ActionUsage | AssertConstraint | AssignmentAction | FeatureMember | ForLoopAction | IfThenAction | NamespaceElement | PerformAction | SendAction | SuccessionUsage | WhileLoopAction;
 
 export const ActionBodyElement = 'ActionBodyElement';
 
@@ -1379,7 +1379,7 @@ export function isFeatureChainRef(item: unknown): item is FeatureChainRef {
 }
 
 export interface FeatureMember extends langium.AstNode {
-    readonly $container: CaseBodyRule | FeatureBodyRule | ResultsBlock | TypeBodyRule;
+    readonly $container: ActionBodyRule | CaseBodyRule | FeatureBodyRule | ResultsBlock | TypeBodyRule;
     readonly $type: 'FeatureMember';
     feature: Feature;
     visibility?: VisibilityIndicator;
@@ -3560,7 +3560,7 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
                 return this.isSubtype(ViewBodyElement, supertype);
             }
             case FeatureMember: {
-                return this.isSubtype(CaseBodyElement, supertype) || this.isSubtype(FeatureBodyElement, supertype) || this.isSubtype(TypeBodyElement, supertype);
+                return this.isSubtype(ActionBodyElement, supertype) || this.isSubtype(CaseBodyElement, supertype) || this.isSubtype(FeatureBodyElement, supertype) || this.isSubtype(TypeBodyElement, supertype);
             }
             case FeatureTypingDecl:
             case Redefinition:

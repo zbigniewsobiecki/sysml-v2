@@ -4,7 +4,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { parseAndExpectSuccess, getFirstElement } from '../helpers/test-utils.js';
+import { parseAndExpectSuccess, parseAndExpectErrors, getFirstElement } from '../helpers/test-utils.js';
 import { isActionDefinition, isActionUsage } from '../../src/language/generated/ast.js';
 
 describe('Actions', () => {
@@ -236,5 +236,21 @@ describe('Actions', () => {
                 }
             `);
         });
+
+        it('should not hang on invalid redefinition in action body', async () => {
+            // This input caused parser to hang due to grammar ambiguity
+            const input = `
+                package Test {
+                    action def MyAction {
+                        action nested {
+                            :>> port = 3000;
+                        }
+                    }
+                }
+            `;
+            // Should complete with errors, not hang
+            const result = await parseAndExpectErrors(input);
+            expect(result.hasErrors).toBe(true);
+        }, 5000);
     });
 });

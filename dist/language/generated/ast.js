@@ -963,7 +963,7 @@ export class SysMLAstReflection extends langium.AbstractAstReflection {
                 return this.isSubtype(ViewBodyElement, supertype);
             }
             case FeatureMember: {
-                return this.isSubtype(CaseBodyElement, supertype) || this.isSubtype(FeatureBodyElement, supertype) || this.isSubtype(TypeBodyElement, supertype);
+                return this.isSubtype(ActionBodyElement, supertype) || this.isSubtype(CaseBodyElement, supertype) || this.isSubtype(FeatureBodyElement, supertype) || this.isSubtype(TypeBodyElement, supertype);
             }
             case FeatureTypingDecl:
             case Redefinition:

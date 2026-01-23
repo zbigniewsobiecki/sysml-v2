@@ -317,8 +317,8 @@ ActionBodyRule:
     {infer ActionBodyRule} ';' | {infer ActionBodyRule} '{' elements+=ActionBodyElement* '}';
 
 ActionBodyElement:
-    NamespaceElement | ActionUsage | SuccessionUsage | IfThenAction | ForLoopAction | WhileLoopAction |
-    AssignmentAction | SendAction | AcceptAction | PerformAction | AssertConstraint;
+    FeatureMember | ActionUsage | SuccessionUsage | IfThenAction | ForLoopAction | WhileLoopAction |
+    AssignmentAction | SendAction | AcceptAction | PerformAction | AssertConstraint | NamespaceElement;
 
 // --- State Definition ---
 StateDefinition:

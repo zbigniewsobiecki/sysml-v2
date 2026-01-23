@@ -17,7 +17,7 @@ export declare const SysMLTerminals: {
 export type SysMLTerminalNames = keyof typeof SysMLTerminals;
 export type SysMLKeywordNames = "!" | "!=" | "!==" | "#" | "%" | "&" | "(" | ")" | "*" | "**" | "+" | "," | "-" | "." | ".." | "/" | ":" | "::" | "::=" | ":=" | ":>" | ":>>" | ";" | "<" | "<=" | "=" | "==" | "===" | "=>" | ">" | ">=" | "?" | "??" | "@" | "[" | "]" | "^" | "about" | "abstract" | "accept" | "action" | "actor" | "alias" | "all" | "allocate" | "allocation" | "analysis" | "and" | "as" | "assert" | "assign" | "assoc" | "association" | "assume" | "attribute" | "behavior" | "binding" | "by" | "calc" | "case" | "class" | "classifier" | "comment" | "composite" | "concern" | "conjugate" | "connect" | "connection" | "connector" | "constraint" | "datatype" | "def" | "default" | "dependency" | "derived" | "disjoint" | "do" | "doc" | "else" | "end" | "entry" | "enum" | "exit" | "expose" | "false" | "feature" | "featuring" | "filter" | "first" | "flow" | "for" | "frame" | "from" | "function" | "hastype" | "if" | "implies" | "import" | "in" | "include" | "inout" | "interaction" | "interface" | "istype" | "item" | "language" | "library" | "lifecycle" | "link" | "meta" | "metadata" | "not" | "null" | "objective" | "occurrence" | "of" | "or" | "out" | "package" | "parallel" | "part" | "perform" | "port" | "portion" | "predicate" | "private" | "protected" | "public" | "readonly" | "redefines" | "redefinition" | "ref" | "references" | "rendering" | "rep" | "require" | "requirement" | "results" | "return" | "send" | "snapshot" | "specialization" | "specializes" | "stakeholder" | "standard" | "state" | "struct" | "subclassification" | "subclassifier" | "subject" | "subset" | "subsets" | "subtype" | "succession" | "then" | "timeslice" | "to" | "transition" | "true" | "type" | "typed" | "until" | "use" | "variant" | "verification" | "via" | "view" | "viewpoint" | "while" | "xor" | "{" | "|" | "}" | "~";
 export type SysMLTokenNames = SysMLTerminalNames | SysMLKeywordNames;
-export type ActionBodyElement = AcceptAction | ActionUsage | AssertConstraint | AssignmentAction | ForLoopAction | IfThenAction | NamespaceElement | PerformAction | SendAction | SuccessionUsage | WhileLoopAction;
+export type ActionBodyElement = AcceptAction | ActionUsage | AssertConstraint | AssignmentAction | FeatureMember | ForLoopAction | IfThenAction | NamespaceElement | PerformAction | SendAction | SuccessionUsage | WhileLoopAction;
 export declare const ActionBodyElement = "ActionBodyElement";
 export declare function isActionBodyElement(item: unknown): item is ActionBodyElement;
 export type AdditiveOperator = '+' | '-';
@@ -794,7 +794,7 @@ export interface FeatureChainRef extends langium.AstNode {
 export declare const FeatureChainRef = "FeatureChainRef";
 export declare function isFeatureChainRef(item: unknown): item is FeatureChainRef;
 export interface FeatureMember extends langium.AstNode {
-    readonly $container: CaseBodyRule | FeatureBodyRule | ResultsBlock | TypeBodyRule;
+    readonly $container: ActionBodyRule | CaseBodyRule | FeatureBodyRule | ResultsBlock | TypeBodyRule;
     readonly $type: 'FeatureMember';
     feature: Feature;
     visibility?: VisibilityIndicator;
