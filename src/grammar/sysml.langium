@@ -827,8 +827,26 @@ QualifiedName:
 NamePart returns string:
     ID | UNRESTRICTED_NAME;
 
+// Name rule allows keywords to be used as identifiers in name positions
+// This is necessary because SysML keywords like 'parallel', 'state', etc.
+// are valid attribute/feature names in many contexts
 Name returns string:
-    ID | UNRESTRICTED_NAME;
+    ID | UNRESTRICTED_NAME |
+    // Allow these keywords as names (common attribute/feature names)
+    'abstract' | 'action' | 'actor' | 'allocation' | 'analysis' |
+    'assert' | 'assume' | 'attribute' | 'behavior' | 'binding' |
+    'calc' | 'case' | 'comment' | 'composite' | 'concern' |
+    'connection' | 'connector' | 'constraint' | 'default' | 'dependency' |
+    'derived' | 'do' | 'doc' | 'end' | 'entry' | 'enum' | 'exit' |
+    'expose' | 'feature' | 'filter' | 'first' | 'flow' | 'frame' |
+    'if' | 'include' | 'interaction' | 'interface' | 'item' |
+    'language' | 'library' | 'lifecycle' | 'link' | 'meta' | 'metadata' |
+    'objective' | 'occurrence' | 'parallel' | 'part' | 'perform' |
+    'port' | 'portion' | 'predicate' | 'readonly' | 'ref' |
+    'rendering' | 'requirement' | 'results' | 'return' | 'send' |
+    'snapshot' | 'stakeholder' | 'standard' | 'state' | 'subject' |
+    'succession' | 'timeslice' | 'transition' | 'type' | 'use' |
+    'variant' | 'verification' | 'view' | 'viewpoint' | 'while';
 
 VisibilityIndicator returns string:
     'public' | 'private' | 'protected';

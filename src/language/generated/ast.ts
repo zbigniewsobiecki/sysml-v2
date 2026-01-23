@@ -129,6 +129,7 @@ export type SysMLKeywordNames =
     | "language"
     | "library"
     | "lifecycle"
+    | "link"
     | "meta"
     | "metadata"
     | "not"
@@ -160,6 +161,7 @@ export type SysMLKeywordNames =
     | "results"
     | "return"
     | "send"
+    | "snapshot"
     | "specialization"
     | "specializes"
     | "stakeholder"
@@ -174,6 +176,7 @@ export type SysMLKeywordNames =
     | "subtype"
     | "succession"
     | "then"
+    | "timeslice"
     | "to"
     | "transition"
     | "true"
@@ -295,10 +298,10 @@ export function isMultiplicityBoundValue(item: unknown): item is MultiplicityBou
     return item === '*' || (typeof item === 'string' && (/0[xX][0-9a-fA-F]+|0[bB][01]+|0[oO][0-7]+|[0-9]+/.test(item)));
 }
 
-export type Name = string;
+export type Name = 'abstract' | 'action' | 'actor' | 'allocation' | 'analysis' | 'assert' | 'assume' | 'attribute' | 'behavior' | 'binding' | 'calc' | 'case' | 'comment' | 'composite' | 'concern' | 'connection' | 'connector' | 'constraint' | 'default' | 'dependency' | 'derived' | 'do' | 'doc' | 'end' | 'entry' | 'enum' | 'exit' | 'expose' | 'feature' | 'filter' | 'first' | 'flow' | 'frame' | 'if' | 'include' | 'interaction' | 'interface' | 'item' | 'language' | 'library' | 'lifecycle' | 'link' | 'meta' | 'metadata' | 'objective' | 'occurrence' | 'parallel' | 'part' | 'perform' | 'port' | 'portion' | 'predicate' | 'readonly' | 'ref' | 'rendering' | 'requirement' | 'results' | 'return' | 'send' | 'snapshot' | 'stakeholder' | 'standard' | 'state' | 'subject' | 'succession' | 'timeslice' | 'transition' | 'type' | 'use' | 'variant' | 'verification' | 'view' | 'viewpoint' | 'while' | string;
 
 export function isName(item: unknown): item is Name {
-    return (typeof item === 'string' && (/[a-zA-Z_][a-zA-Z0-9_]*/.test(item) || /'([^'\\]|\\.)*'/.test(item)));
+    return item === 'abstract' || item === 'action' || item === 'actor' || item === 'allocation' || item === 'analysis' || item === 'assert' || item === 'assume' || item === 'attribute' || item === 'behavior' || item === 'binding' || item === 'calc' || item === 'case' || item === 'comment' || item === 'composite' || item === 'concern' || item === 'connection' || item === 'connector' || item === 'constraint' || item === 'default' || item === 'dependency' || item === 'derived' || item === 'do' || item === 'doc' || item === 'end' || item === 'entry' || item === 'enum' || item === 'exit' || item === 'expose' || item === 'feature' || item === 'filter' || item === 'first' || item === 'flow' || item === 'frame' || item === 'if' || item === 'include' || item === 'interaction' || item === 'interface' || item === 'item' || item === 'language' || item === 'library' || item === 'lifecycle' || item === 'link' || item === 'meta' || item === 'metadata' || item === 'objective' || item === 'occurrence' || item === 'parallel' || item === 'part' || item === 'perform' || item === 'port' || item === 'portion' || item === 'predicate' || item === 'readonly' || item === 'ref' || item === 'rendering' || item === 'requirement' || item === 'results' || item === 'return' || item === 'send' || item === 'snapshot' || item === 'stakeholder' || item === 'standard' || item === 'state' || item === 'subject' || item === 'succession' || item === 'timeslice' || item === 'transition' || item === 'type' || item === 'use' || item === 'variant' || item === 'verification' || item === 'view' || item === 'viewpoint' || item === 'while' || (typeof item === 'string' && (/[a-zA-Z_][a-zA-Z0-9_]*/.test(item) || /'([^'\\]|\\.)*'/.test(item)));
 }
 
 export type NamePart = string;

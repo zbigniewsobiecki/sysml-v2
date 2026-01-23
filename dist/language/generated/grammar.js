@@ -13242,6 +13242,302 @@ export const SysMLGrammar = () => loadedSysMLGrammar ?? (loadedSysMLGrammar = lo
               "$ref": "#/rules@206"
             },
             "arguments": []
+          },
+          {
+            "$type": "Keyword",
+            "value": "abstract"
+          },
+          {
+            "$type": "Keyword",
+            "value": "action"
+          },
+          {
+            "$type": "Keyword",
+            "value": "actor"
+          },
+          {
+            "$type": "Keyword",
+            "value": "allocation"
+          },
+          {
+            "$type": "Keyword",
+            "value": "analysis"
+          },
+          {
+            "$type": "Keyword",
+            "value": "assert"
+          },
+          {
+            "$type": "Keyword",
+            "value": "assume"
+          },
+          {
+            "$type": "Keyword",
+            "value": "attribute"
+          },
+          {
+            "$type": "Keyword",
+            "value": "behavior"
+          },
+          {
+            "$type": "Keyword",
+            "value": "binding"
+          },
+          {
+            "$type": "Keyword",
+            "value": "calc"
+          },
+          {
+            "$type": "Keyword",
+            "value": "case"
+          },
+          {
+            "$type": "Keyword",
+            "value": "comment"
+          },
+          {
+            "$type": "Keyword",
+            "value": "composite"
+          },
+          {
+            "$type": "Keyword",
+            "value": "concern"
+          },
+          {
+            "$type": "Keyword",
+            "value": "connection"
+          },
+          {
+            "$type": "Keyword",
+            "value": "connector"
+          },
+          {
+            "$type": "Keyword",
+            "value": "constraint"
+          },
+          {
+            "$type": "Keyword",
+            "value": "default"
+          },
+          {
+            "$type": "Keyword",
+            "value": "dependency"
+          },
+          {
+            "$type": "Keyword",
+            "value": "derived"
+          },
+          {
+            "$type": "Keyword",
+            "value": "do"
+          },
+          {
+            "$type": "Keyword",
+            "value": "doc"
+          },
+          {
+            "$type": "Keyword",
+            "value": "end"
+          },
+          {
+            "$type": "Keyword",
+            "value": "entry"
+          },
+          {
+            "$type": "Keyword",
+            "value": "enum"
+          },
+          {
+            "$type": "Keyword",
+            "value": "exit"
+          },
+          {
+            "$type": "Keyword",
+            "value": "expose"
+          },
+          {
+            "$type": "Keyword",
+            "value": "feature"
+          },
+          {
+            "$type": "Keyword",
+            "value": "filter"
+          },
+          {
+            "$type": "Keyword",
+            "value": "first"
+          },
+          {
+            "$type": "Keyword",
+            "value": "flow"
+          },
+          {
+            "$type": "Keyword",
+            "value": "frame"
+          },
+          {
+            "$type": "Keyword",
+            "value": "if"
+          },
+          {
+            "$type": "Keyword",
+            "value": "include"
+          },
+          {
+            "$type": "Keyword",
+            "value": "interaction"
+          },
+          {
+            "$type": "Keyword",
+            "value": "interface"
+          },
+          {
+            "$type": "Keyword",
+            "value": "item"
+          },
+          {
+            "$type": "Keyword",
+            "value": "language"
+          },
+          {
+            "$type": "Keyword",
+            "value": "library"
+          },
+          {
+            "$type": "Keyword",
+            "value": "lifecycle"
+          },
+          {
+            "$type": "Keyword",
+            "value": "link"
+          },
+          {
+            "$type": "Keyword",
+            "value": "meta"
+          },
+          {
+            "$type": "Keyword",
+            "value": "metadata"
+          },
+          {
+            "$type": "Keyword",
+            "value": "objective"
+          },
+          {
+            "$type": "Keyword",
+            "value": "occurrence"
+          },
+          {
+            "$type": "Keyword",
+            "value": "parallel"
+          },
+          {
+            "$type": "Keyword",
+            "value": "part"
+          },
+          {
+            "$type": "Keyword",
+            "value": "perform"
+          },
+          {
+            "$type": "Keyword",
+            "value": "port"
+          },
+          {
+            "$type": "Keyword",
+            "value": "portion"
+          },
+          {
+            "$type": "Keyword",
+            "value": "predicate"
+          },
+          {
+            "$type": "Keyword",
+            "value": "readonly"
+          },
+          {
+            "$type": "Keyword",
+            "value": "ref"
+          },
+          {
+            "$type": "Keyword",
+            "value": "rendering"
+          },
+          {
+            "$type": "Keyword",
+            "value": "requirement"
+          },
+          {
+            "$type": "Keyword",
+            "value": "results"
+          },
+          {
+            "$type": "Keyword",
+            "value": "return"
+          },
+          {
+            "$type": "Keyword",
+            "value": "send"
+          },
+          {
+            "$type": "Keyword",
+            "value": "snapshot"
+          },
+          {
+            "$type": "Keyword",
+            "value": "stakeholder"
+          },
+          {
+            "$type": "Keyword",
+            "value": "standard"
+          },
+          {
+            "$type": "Keyword",
+            "value": "state"
+          },
+          {
+            "$type": "Keyword",
+            "value": "subject"
+          },
+          {
+            "$type": "Keyword",
+            "value": "succession"
+          },
+          {
+            "$type": "Keyword",
+            "value": "timeslice"
+          },
+          {
+            "$type": "Keyword",
+            "value": "transition"
+          },
+          {
+            "$type": "Keyword",
+            "value": "type"
+          },
+          {
+            "$type": "Keyword",
+            "value": "use"
+          },
+          {
+            "$type": "Keyword",
+            "value": "variant"
+          },
+          {
+            "$type": "Keyword",
+            "value": "verification"
+          },
+          {
+            "$type": "Keyword",
+            "value": "view"
+          },
+          {
+            "$type": "Keyword",
+            "value": "viewpoint"
+          },
+          {
+            "$type": "Keyword",
+            "value": "while"
           }
         ]
       },
