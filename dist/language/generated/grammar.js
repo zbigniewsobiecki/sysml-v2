@@ -6549,6 +6549,13 @@ export const SysMLGrammar = () => loadedSysMLGrammar ?? (loadedSysMLGrammar = lo
               "$ref": "#/rules@95"
             },
             "arguments": []
+          },
+          {
+            "$type": "RuleCall",
+            "rule": {
+              "$ref": "#/rules@37"
+            },
+            "arguments": []
           }
         ]
       },

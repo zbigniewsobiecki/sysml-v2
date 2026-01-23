@@ -381,6 +381,21 @@ describe('Definitions', () => {
             const def = getFirstElement(ast);
             expectDefinitionType(def, isAnalysisCaseDefinition, 'AnalysisCaseDefinition', 'PerformanceAnalysis');
         });
+
+        it('should parse analysis def with direct attributes', async () => {
+            const ast = await parseAndExpectSuccess(`
+                analysis def SecurityProfile {
+                    attribute riskLevel : String;
+                    attribute score : Real;
+                    results {
+                        attribute recommendation : String;
+                    }
+                }
+            `);
+            const def = getFirstElement(ast);
+            expect(isAnalysisCaseDefinition(def)).toBe(true);
+            expect(def.name).toBe('SecurityProfile');
+        });
     });
 
     describe('Verification Case Definition', () => {

@@ -25,7 +25,7 @@ export declare function isAdditiveOperator(item: unknown): item is AdditiveOpera
 export type CalculationBodyElement = ActionUsage | AttributeUsage | NamespaceElement | ReturnUsage;
 export declare const CalculationBodyElement = "CalculationBodyElement";
 export declare function isCalculationBodyElement(item: unknown): item is CalculationBodyElement;
-export type CaseBodyElement = ActionUsage | ActorMember | NamespaceElement | ObjectiveMember | ResultsBlock | SubjectUsage;
+export type CaseBodyElement = ActionUsage | ActorMember | FeatureMember | NamespaceElement | ObjectiveMember | ResultsBlock | SubjectUsage;
 export declare const CaseBodyElement = "CaseBodyElement";
 export declare function isCaseBodyElement(item: unknown): item is CaseBodyElement;
 export type ClassificationOperator = '@' | 'as' | 'hastype' | 'istype' | 'meta';
@@ -794,7 +794,7 @@ export interface FeatureChainRef extends langium.AstNode {
 export declare const FeatureChainRef = "FeatureChainRef";
 export declare function isFeatureChainRef(item: unknown): item is FeatureChainRef;
 export interface FeatureMember extends langium.AstNode {
-    readonly $container: FeatureBodyRule | ResultsBlock | TypeBodyRule;
+    readonly $container: CaseBodyRule | FeatureBodyRule | ResultsBlock | TypeBodyRule;
     readonly $type: 'FeatureMember';
     feature: Feature;
     visibility?: VisibilityIndicator;

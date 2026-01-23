@@ -419,7 +419,7 @@ CaseBodyRule:
     {infer CaseBodyRule} ';' | {infer CaseBodyRule} '{' elements+=CaseBodyElement* '}';
 
 CaseBodyElement:
-    NamespaceElement | SubjectUsage | ObjectiveMember | ActorMember | ActionUsage | ResultsBlock;
+    NamespaceElement | SubjectUsage | ObjectiveMember | ActorMember | ActionUsage | ResultsBlock | FeatureMember;
 
 // Results block for analysis cases - contains feature members (attributes, etc.)
 ResultsBlock:
