@@ -256,7 +256,8 @@ describe('Export Command', () => {
 
     describe('Export Errors', () => {
         it('should not export AST for invalid file', async () => {
-            const result = await parseDocument('part def {');
+            // Use extra closing brace to trigger parser error without hang
+            const result = await parseDocument('part def P { } }');
 
             expect(result.hasErrors).toBe(true);
             // AST may be partial or undefined

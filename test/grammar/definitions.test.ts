@@ -5,6 +5,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { parseAndExpectSuccess, getFirstElement, getPackageElements, expectDefinitionType } from '../helpers/test-utils.js';
+import { parseDocument } from '../../src/utils/parser-utils.js';
 import {
     isPartDefinition,
     isItemDefinition,
@@ -98,6 +99,44 @@ describe('Definitions', () => {
             const membership = pkg.elements?.[0];
             expect(membership?.visibility).toBe('private');
         });
+
+        it('should not hang on metadata usage in part def body', async () => {
+            // This content previously caused the parser to hang
+            const content = `package SystemContext {
+                part def ExternalDependency {
+                    #SysMLPrimitives::external;
+                    attribute name : String;
+                }
+            }`;
+            // Should complete quickly (valid or error, but not hang)
+            const result = await parseDocument(content);
+            // metadata with # syntax should parse successfully
+            expect(result.hasErrors).toBe(false);
+        }, 5000);
+
+        it('should not hang on metadata keyword in part def body', async () => {
+            // The 'metadata' keyword without 'def' in a type body caused hangs
+            const content = `package SystemContext {
+                part def ExternalDependency {
+                    @external;
+                    attribute name : String;
+                }
+            }`;
+            // Should complete quickly (valid or error, but not hang)
+            const result = await parseDocument(content);
+            expect(result).toBeDefined();
+        }, 5000);
+
+        it('should parse part with redefinition syntax', async () => {
+            const content = `package Test {
+                part postgresql {
+                    :>> name = "PostgreSQL";
+                    :>> purpose = "Data persistence";
+                }
+            }`;
+            const result = await parseAndExpectSuccess(content);
+            expect(result).toBeDefined();
+        }, 5000);
     });
 
     describe('Item Definition', () => {

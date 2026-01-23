@@ -105,6 +105,7 @@ export type SysMLKeywordNames =
     | "enum"
     | "exit"
     | "expose"
+    | "external"
     | "false"
     | "feature"
     | "featuring"
@@ -116,6 +117,7 @@ export type SysMLKeywordNames =
     | "from"
     | "function"
     | "hastype"
+    | "id"
     | "if"
     | "implies"
     | "import"
@@ -132,6 +134,7 @@ export type SysMLKeywordNames =
     | "link"
     | "meta"
     | "metadata"
+    | "name"
     | "not"
     | "null"
     | "objective"
@@ -149,6 +152,7 @@ export type SysMLKeywordNames =
     | "private"
     | "protected"
     | "public"
+    | "purpose"
     | "readonly"
     | "redefines"
     | "redefinition"
@@ -184,6 +188,7 @@ export type SysMLKeywordNames =
     | "typed"
     | "until"
     | "use"
+    | "value"
     | "variant"
     | "verification"
     | "via"
@@ -298,16 +303,16 @@ export function isMultiplicityBoundValue(item: unknown): item is MultiplicityBou
     return item === '*' || (typeof item === 'string' && (/0[xX][0-9a-fA-F]+|0[bB][01]+|0[oO][0-7]+|[0-9]+/.test(item)));
 }
 
-export type Name = 'about' | 'abstract' | 'accept' | 'action' | 'actor' | 'alias' | 'all' | 'allocate' | 'allocation' | 'analysis' | 'as' | 'assert' | 'assign' | 'assoc' | 'association' | 'assume' | 'attribute' | 'behavior' | 'binding' | 'by' | 'calc' | 'case' | 'class' | 'classifier' | 'comment' | 'composite' | 'concern' | 'conjugate' | 'connect' | 'connection' | 'connector' | 'constraint' | 'datatype' | 'def' | 'default' | 'dependency' | 'derived' | 'disjoint' | 'do' | 'doc' | 'else' | 'end' | 'entry' | 'enum' | 'exit' | 'expose' | 'feature' | 'featuring' | 'filter' | 'first' | 'flow' | 'for' | 'frame' | 'from' | 'function' | 'hastype' | 'if' | 'import' | 'in' | 'include' | 'inout' | 'interaction' | 'interface' | 'istype' | 'item' | 'language' | 'library' | 'lifecycle' | 'link' | 'meta' | 'metadata' | 'objective' | 'occurrence' | 'of' | 'out' | 'package' | 'parallel' | 'part' | 'perform' | 'port' | 'portion' | 'predicate' | 'private' | 'protected' | 'public' | 'readonly' | 'redefines' | 'redefinition' | 'ref' | 'references' | 'rendering' | 'rep' | 'require' | 'requirement' | 'results' | 'return' | 'send' | 'snapshot' | 'specialization' | 'specializes' | 'stakeholder' | 'standard' | 'state' | 'struct' | 'subclassification' | 'subclassifier' | 'subject' | 'subset' | 'subsets' | 'subtype' | 'succession' | 'then' | 'timeslice' | 'to' | 'transition' | 'type' | 'typed' | 'until' | 'use' | 'variant' | 'verification' | 'via' | 'view' | 'viewpoint' | 'while' | string;
+export type Name = 'about' | 'abstract' | 'accept' | 'action' | 'actor' | 'alias' | 'all' | 'allocate' | 'allocation' | 'analysis' | 'as' | 'assert' | 'assign' | 'assoc' | 'association' | 'assume' | 'attribute' | 'behavior' | 'binding' | 'by' | 'calc' | 'case' | 'class' | 'classifier' | 'comment' | 'composite' | 'concern' | 'conjugate' | 'connect' | 'connection' | 'connector' | 'constraint' | 'datatype' | 'def' | 'default' | 'dependency' | 'derived' | 'disjoint' | 'do' | 'doc' | 'else' | 'end' | 'entry' | 'enum' | 'exit' | 'expose' | 'external' | 'feature' | 'featuring' | 'filter' | 'first' | 'flow' | 'for' | 'frame' | 'from' | 'function' | 'hastype' | 'id' | 'if' | 'import' | 'in' | 'include' | 'inout' | 'interaction' | 'interface' | 'istype' | 'item' | 'language' | 'library' | 'lifecycle' | 'link' | 'meta' | 'metadata' | 'name' | 'objective' | 'occurrence' | 'of' | 'out' | 'package' | 'parallel' | 'part' | 'perform' | 'port' | 'portion' | 'predicate' | 'private' | 'protected' | 'public' | 'purpose' | 'readonly' | 'redefines' | 'redefinition' | 'ref' | 'references' | 'rendering' | 'rep' | 'require' | 'requirement' | 'results' | 'return' | 'send' | 'snapshot' | 'specialization' | 'specializes' | 'stakeholder' | 'standard' | 'state' | 'struct' | 'subclassification' | 'subclassifier' | 'subject' | 'subset' | 'subsets' | 'subtype' | 'succession' | 'then' | 'timeslice' | 'to' | 'transition' | 'type' | 'typed' | 'until' | 'use' | 'value' | 'variant' | 'verification' | 'via' | 'view' | 'viewpoint' | 'while' | string;
 
 export function isName(item: unknown): item is Name {
-    return item === 'about' || item === 'abstract' || item === 'accept' || item === 'action' || item === 'actor' || item === 'alias' || item === 'all' || item === 'allocate' || item === 'allocation' || item === 'analysis' || item === 'as' || item === 'assert' || item === 'assign' || item === 'assoc' || item === 'association' || item === 'assume' || item === 'attribute' || item === 'behavior' || item === 'binding' || item === 'by' || item === 'calc' || item === 'case' || item === 'class' || item === 'classifier' || item === 'comment' || item === 'composite' || item === 'concern' || item === 'conjugate' || item === 'connect' || item === 'connection' || item === 'connector' || item === 'constraint' || item === 'datatype' || item === 'def' || item === 'default' || item === 'dependency' || item === 'derived' || item === 'disjoint' || item === 'do' || item === 'doc' || item === 'else' || item === 'end' || item === 'entry' || item === 'enum' || item === 'exit' || item === 'expose' || item === 'feature' || item === 'featuring' || item === 'filter' || item === 'first' || item === 'flow' || item === 'for' || item === 'frame' || item === 'from' || item === 'function' || item === 'hastype' || item === 'if' || item === 'import' || item === 'in' || item === 'include' || item === 'inout' || item === 'interaction' || item === 'interface' || item === 'istype' || item === 'item' || item === 'language' || item === 'library' || item === 'lifecycle' || item === 'link' || item === 'meta' || item === 'metadata' || item === 'objective' || item === 'occurrence' || item === 'of' || item === 'out' || item === 'package' || item === 'parallel' || item === 'part' || item === 'perform' || item === 'port' || item === 'portion' || item === 'predicate' || item === 'private' || item === 'protected' || item === 'public' || item === 'readonly' || item === 'redefines' || item === 'redefinition' || item === 'ref' || item === 'references' || item === 'rendering' || item === 'rep' || item === 'require' || item === 'requirement' || item === 'results' || item === 'return' || item === 'send' || item === 'snapshot' || item === 'specialization' || item === 'specializes' || item === 'stakeholder' || item === 'standard' || item === 'state' || item === 'struct' || item === 'subclassification' || item === 'subclassifier' || item === 'subject' || item === 'subset' || item === 'subsets' || item === 'subtype' || item === 'succession' || item === 'then' || item === 'timeslice' || item === 'to' || item === 'transition' || item === 'type' || item === 'typed' || item === 'until' || item === 'use' || item === 'variant' || item === 'verification' || item === 'via' || item === 'view' || item === 'viewpoint' || item === 'while' || (typeof item === 'string' && (/[a-zA-Z_][a-zA-Z0-9_]*/.test(item) || /'([^'\\]|\\.)*'/.test(item)));
+    return item === 'about' || item === 'abstract' || item === 'accept' || item === 'action' || item === 'actor' || item === 'alias' || item === 'all' || item === 'allocate' || item === 'allocation' || item === 'analysis' || item === 'as' || item === 'assert' || item === 'assign' || item === 'assoc' || item === 'association' || item === 'assume' || item === 'attribute' || item === 'behavior' || item === 'binding' || item === 'by' || item === 'calc' || item === 'case' || item === 'class' || item === 'classifier' || item === 'comment' || item === 'composite' || item === 'concern' || item === 'conjugate' || item === 'connect' || item === 'connection' || item === 'connector' || item === 'constraint' || item === 'datatype' || item === 'def' || item === 'default' || item === 'dependency' || item === 'derived' || item === 'disjoint' || item === 'do' || item === 'doc' || item === 'else' || item === 'end' || item === 'entry' || item === 'enum' || item === 'exit' || item === 'expose' || item === 'feature' || item === 'featuring' || item === 'filter' || item === 'first' || item === 'flow' || item === 'for' || item === 'frame' || item === 'from' || item === 'function' || item === 'hastype' || item === 'if' || item === 'import' || item === 'in' || item === 'include' || item === 'inout' || item === 'interaction' || item === 'interface' || item === 'istype' || item === 'item' || item === 'language' || item === 'library' || item === 'lifecycle' || item === 'link' || item === 'meta' || item === 'metadata' || item === 'objective' || item === 'occurrence' || item === 'of' || item === 'out' || item === 'package' || item === 'parallel' || item === 'part' || item === 'perform' || item === 'port' || item === 'portion' || item === 'predicate' || item === 'private' || item === 'protected' || item === 'public' || item === 'readonly' || item === 'redefines' || item === 'redefinition' || item === 'ref' || item === 'references' || item === 'rendering' || item === 'rep' || item === 'require' || item === 'requirement' || item === 'results' || item === 'return' || item === 'send' || item === 'snapshot' || item === 'specialization' || item === 'specializes' || item === 'stakeholder' || item === 'standard' || item === 'state' || item === 'struct' || item === 'subclassification' || item === 'subclassifier' || item === 'subject' || item === 'subset' || item === 'subsets' || item === 'subtype' || item === 'succession' || item === 'then' || item === 'timeslice' || item === 'to' || item === 'transition' || item === 'type' || item === 'typed' || item === 'until' || item === 'use' || item === 'variant' || item === 'verification' || item === 'via' || item === 'view' || item === 'viewpoint' || item === 'while' || item === 'name' || item === 'value' || item === 'id' || item === 'purpose' || item === 'external' || (typeof item === 'string' && (/[a-zA-Z_][a-zA-Z0-9_]*/.test(item) || /'([^'\\]|\\.)*'/.test(item)));
 }
 
-export type NamePart = string;
+export type NamePart = 'action' | 'allocation' | 'attribute' | 'connection' | 'constraint' | 'external' | 'flow' | 'id' | 'interface' | 'item' | 'metadata' | 'name' | 'part' | 'port' | 'purpose' | 'rendering' | 'requirement' | 'state' | 'type' | 'value' | 'view' | 'viewpoint' | string;
 
 export function isNamePart(item: unknown): item is NamePart {
-    return (typeof item === 'string' && (/[a-zA-Z_][a-zA-Z0-9_]*/.test(item) || /'([^'\\]|\\.)*'/.test(item)));
+    return item === 'port' || item === 'action' || item === 'state' || item === 'attribute' || item === 'part' || item === 'item' || item === 'flow' || item === 'connection' || item === 'interface' || item === 'allocation' || item === 'constraint' || item === 'requirement' || item === 'view' || item === 'viewpoint' || item === 'rendering' || item === 'metadata' || item === 'name' || item === 'value' || item === 'type' || item === 'id' || item === 'purpose' || item === 'external' || (typeof item === 'string' && (/[a-zA-Z_][a-zA-Z0-9_]*/.test(item) || /'([^'\\]|\\.)*'/.test(item)));
 }
 
 export type NamespaceElement = AliasMember | Import | OwningMembership;

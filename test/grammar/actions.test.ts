@@ -237,8 +237,8 @@ describe('Actions', () => {
             `);
         });
 
-        it('should not hang on invalid redefinition in action body', async () => {
-            // This input caused parser to hang due to grammar ambiguity
+        it('should not hang on redefinition in action body', async () => {
+            // This input caused parser to hang due to NamespaceElement being first in ActionBodyElement
             const input = `
                 package Test {
                     action def MyAction {
@@ -248,9 +248,9 @@ describe('Actions', () => {
                     }
                 }
             `;
-            // Should complete with errors, not hang
-            const result = await parseAndExpectErrors(input);
-            expect(result.hasErrors).toBe(true);
+            // Should complete quickly - valid SysML with redefinition syntax
+            const result = await parseAndExpectSuccess(input);
+            expect(result).toBeDefined();
         }, 5000);
     });
 });

@@ -160,7 +160,7 @@ TypeBodyRule:
     {infer TypeBodyRule} ';' | {infer TypeBodyRule} '{' elements+=TypeBodyElement* '}';
 
 TypeBodyElement:
-    NamespaceElement | RelationshipElement | FeatureMember;
+    RelationshipElement | FeatureMember | NamespaceElement;
 
 RelationshipElement:
     Specialization | Subclassification | FeatureTypingDecl | Subsetting | Redefinition;
@@ -328,7 +328,7 @@ StateBodyRule:
     {infer StateBodyRule} ';' | {infer StateBodyRule} '{' elements+=StateBodyElement* '}';
 
 StateBodyElement:
-    NamespaceElement | StateUsage | TransitionUsage | EntryAction | ExitAction | DoAction;
+    StateUsage | TransitionUsage | EntryAction | ExitAction | DoAction | NamespaceElement;
 
 EntryAction:
     'entry' action=ActionUsage;
@@ -350,7 +350,7 @@ CalculationBodyRule:
     {infer CalculationBodyRule} ';' | {infer CalculationBodyRule} '{' elements+=CalculationBodyElement* result=ResultExpressionRule? '}';
 
 CalculationBodyElement:
-    NamespaceElement | AttributeUsage | ActionUsage | ReturnUsage;
+    AttributeUsage | ActionUsage | ReturnUsage | NamespaceElement;
 
 // Return statement in calc body: return result : Real;
 ReturnUsage:
@@ -367,7 +367,7 @@ ConstraintBodyRule:
     {infer ConstraintBodyRule} ';' | {infer ConstraintBodyRule} '{' elements+=ConstraintBodyElement* constraintExpr=OwnedExpression? '}';
 
 ConstraintBodyElement:
-    NamespaceElement | AttributeUsage;
+    AttributeUsage | NamespaceElement;
 
 // --- Requirement Definition ---
 // Supports optional requirement id: requirement def 'REQ-001' ReqName;
@@ -378,9 +378,9 @@ RequirementBodyRule:
     {infer RequirementBodyRule} ';' | {infer RequirementBodyRule} '{' elements+=RequirementBodyElement* '}';
 
 RequirementBodyElement:
-    NamespaceElement | Documentation | RequirementUsage | ConstraintUsage |
+    Documentation | RequirementUsage | ConstraintUsage |
     SubjectUsage | FramedConcern | AssumeConstraint | RequireConstraint |
-    ObjectiveMember | StakeholderMember | ActorMember;
+    ObjectiveMember | StakeholderMember | ActorMember | NamespaceElement;
 
 SubjectUsage:
     'subject' name=Name? ((':' | 'typed' 'by') subjectTypes+=QualifiedName)? multiplicity=MultiplicityBounds? body=FeatureBodyRule;
@@ -419,7 +419,7 @@ CaseBodyRule:
     {infer CaseBodyRule} ';' | {infer CaseBodyRule} '{' elements+=CaseBodyElement* '}';
 
 CaseBodyElement:
-    NamespaceElement | SubjectUsage | ObjectiveMember | ActorMember | ActionUsage | ResultsBlock | FeatureMember;
+    SubjectUsage | ObjectiveMember | ActorMember | ActionUsage | ResultsBlock | FeatureMember | NamespaceElement;
 
 // Results block for analysis cases - contains feature members (attributes, etc.)
 ResultsBlock:
@@ -441,7 +441,7 @@ UseCaseBodyRule:
     {infer UseCaseBodyRule} ';' | {infer UseCaseBodyRule} '{' elements+=UseCaseBodyElement* '}';
 
 UseCaseBodyElement:
-    NamespaceElement | SubjectUsage | ObjectiveMember | ActorMember | ActionUsage | IncludeUseCaseUsage;
+    SubjectUsage | ObjectiveMember | ActorMember | ActionUsage | IncludeUseCaseUsage | NamespaceElement;
 
 IncludeUseCaseUsage:
     'include' included=UseCaseUsage;
@@ -454,7 +454,7 @@ ViewBodyRule:
     {infer ViewBodyRule} ';' | {infer ViewBodyRule} '{' elements+=ViewBodyElement* '}';
 
 ViewBodyElement:
-    NamespaceElement | ViewUsage | RenderingUsage | ExposeElement | FilterElement;
+    ViewUsage | RenderingUsage | ExposeElement | FilterElement | NamespaceElement;
 
 ExposeElement:
     'expose' exposed=QualifiedName ';';
@@ -824,8 +824,15 @@ BodyExpression:
 QualifiedName:
     names+=NamePart ('::' names+=NamePart)*;
 
+// NamePart is used in QualifiedName - allows keywords as name parts
+// to prevent parser hangs when keywords are used in qualified references
 NamePart returns string:
-    ID | UNRESTRICTED_NAME;
+    ID | UNRESTRICTED_NAME |
+    // Common keywords that may appear as feature/attribute names in references
+    'port' | 'action' | 'state' | 'attribute' | 'part' | 'item' |
+    'flow' | 'connection' | 'interface' | 'allocation' | 'constraint' |
+    'requirement' | 'view' | 'viewpoint' | 'rendering' | 'metadata' |
+    'name' | 'value' | 'type' | 'id' | 'purpose' | 'external';
 
 // Name rule allows keywords to be used as identifiers in name positions
 // This is necessary because SysML keywords like 'parallel', 'state', etc.
@@ -862,7 +869,9 @@ Name returns string:
     'then' | 'timeslice' | 'to' | 'transition' | 'type' | 'typed' |
     'until' | 'use' |
     'variant' | 'verification' | 'via' | 'view' | 'viewpoint' |
-    'while';
+    'while' |
+    // Additional common names (added to prevent hangs when used in QualifiedName)
+    'name' | 'value' | 'id' | 'purpose' | 'external';
 
 VisibilityIndicator returns string:
     'public' | 'private' | 'protected';

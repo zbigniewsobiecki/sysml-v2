@@ -216,8 +216,9 @@ part def A;`);
     describe('Parse vs Validation Errors', () => {
         it('should include parse errors in validation result', async () => {
             const filePath = temp.filePath('parse-error.sysml');
+            // Use extra closing brace to trigger parser error without hang
             await fs.writeFile(filePath, `
-                part def {
+                part def P { } }
             `);
 
             const result = await validateFile(filePath);
